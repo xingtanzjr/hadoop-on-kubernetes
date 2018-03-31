@@ -33,9 +33,7 @@ spec:
           image: xingtanzjr/hadoop-nodemanager:2.7.5
           resources:
             requests:
-              memory: "8192Mi"
-            limits:
-              memory: "10240Mi"
+              memory: "4096Mi"
           env:
             - name: CORE_CONF_fs_defaultFS
               value: hdfs://hdfs-namenode-0.hdfs-namenode.hdfs.svc.cluster.local:8020
@@ -44,11 +42,11 @@ spec:
             - name: YARN_CONF_yarn_nodemanager_aux___services
               value: mapreduce_shuffle
             - name: YARN_CONF_yarn_nodemanager_resource_memory___mb
-              value: "8192"
+              value: "4096"
             - name: YARN_CONF_yarn_scheduler_minimum___allocation___mb
               value: "512"
             - name: YARN_CONF_yarn_scheduler_maximum___allocation___mb
-              value: "4096"
+              value: "2048"
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
