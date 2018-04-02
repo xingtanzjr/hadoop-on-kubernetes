@@ -20,6 +20,7 @@ kind: StatefulSet
 metadata:
   name: spark-base
 spec:
+  serviceName: "spark-base"
   replicas: 1
   template:
     metadata:
