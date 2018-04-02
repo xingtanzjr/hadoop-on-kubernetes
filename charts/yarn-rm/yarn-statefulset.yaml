@@ -78,11 +78,13 @@ spec:
             - name: CLUSTER_NAME
               value: hdfs-k8s
             - name: YARN_CONF_yarn_nodemanager_resource_memory___mb
-              value: "8192"
+              value: "6144"
             - name: YARN_CONF_yarn_scheduler_minimum___allocation___mb
               value: "512"
             - name: YARN_CONF_yarn_scheduler_maximum___allocation___mb
-              value: "4096"
+              value: "6144"
+            - name: YARN_CONF_yarn_nodemanager_vmem___check___enabled
+              value: "false"
           ports:
           - containerPort: 8032
             name: rm
