@@ -47,6 +47,6 @@ spec:
               value: "6144"
             - name: YARN_CONF_yarn_nodemanager_vmem___check___enabled
               value: "false"
-      restartPolicy: Always
+        restartPolicy: Always
             nodeSelector:
         yarn-rm-selector: yarn-rm-0
