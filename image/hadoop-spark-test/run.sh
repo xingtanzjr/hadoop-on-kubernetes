@@ -1,3 +1,3 @@
 #!/bin/bash
 
-tail -f entrypoint.sh 
+tail -f /entrypoint.sh 
