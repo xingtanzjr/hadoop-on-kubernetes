@@ -15,35 +15,51 @@
 
 # Deleting a daemonset may need some trick. See
 # https://github.com/kubernetes/kubernetes/issues/33245#issuecomment-261250489
-apiVersion: apps/v1beta1
-kind: StatefulSet
+apiVersion: v1
+kind: Service
 metadata:
-  name: spark-base
+  name: yarn-nm-web
+  labels:
+    app: yarn-nm-web
+  namespace: hdfs
 spec:
-  serviceName: "spark-base"
-  replicas: 1
+  type: NodePort
+  ports:
+  - port: 8042
+    nodePort: 30042
+    name: webui
+  selector:
+    name: yarn-nm
+---
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: yarn-nm
+spec:
   template:
     metadata:
       labels:
-        app: spark-base
+        name: yarn-nm
     spec:
-      # Use hostNetwork so datanodes connect to namenode without going through an overlay network
-      # like weave. Otherwise, namenode fails to see physical IP address of datanodes.
       hostNetwork: true
       hostPID: true
       dnsPolicy: ClusterFirstWithHostNet
       containers:
-        - name: spark-base
-          image: xingtanzjr/hadoop-spark-test:2.3.0
+        - name: yarn-nm
+          image: xingtanzjr/hadoop-nodemanager:2.7.5
+          resources:
+            requests:
+              memory: "4096Mi"
+          ports:
+          - containerPort: 8042
+            name: rm
           env:
             - name: CORE_CONF_fs_defaultFS
-              value: hdfs://hdfs-namenode-0.hdfs-namenode.hdfs.svc.cluster.local:8020
+              value: hdfs://hdfs-namenode-0.hdfs-namenode.{{.Release.Namespace}}.svc.cluster.local:8020
+            - name: YARN_CONF_yarn_resourcemanager_hostname
+              value: yarn-rm-0.yarn-rm.{{.Release.Namespace}}.svc.cluster.local
             - name: YARN_CONF_yarn_nodemanager_aux___services
               value: mapreduce_shuffle
-            - name: YARN_CONF_yarn_resourcemanager_hostname
-              value: yarn-rm-0.yarn-rm.hdfs.svc.cluster.local
-            - name: CLUSTER_NAME
-              value: hdfs-k8s
             - name: YARN_CONF_yarn_nodemanager_resource_memory___mb
               value: "6144"
             - name: YARN_CONF_yarn_scheduler_minimum___allocation___mb
@@ -52,6 +68,11 @@ spec:
               value: "6144"
             - name: YARN_CONF_yarn_nodemanager_vmem___check___enabled
               value: "false"
-      nodeSelector:
-        yarn-rm-selector: yarn-rm-0
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                - key: yarn-nm-exclude
+                  operator: DoesNotExist
       restartPolicy: Always
