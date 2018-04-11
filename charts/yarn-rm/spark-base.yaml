@@ -19,6 +19,7 @@ apiVersion: apps/v1beta1
 kind: StatefulSet
 metadata:
   name: spark-base
+  namespace: hdfs
 spec:
   serviceName: "spark-base"
   replicas: 1
