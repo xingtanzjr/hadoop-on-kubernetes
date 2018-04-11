@@ -1,0 +1,78 @@
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Deleting a daemonset may need some trick. See
+# https://github.com/kubernetes/kubernetes/issues/33245#issuecomment-261250489
+apiVersion: v1
+kind: Service
+metadata:
+  name: yarn-nm-web
+  labels:
+    app: yarn-nm-web
+  namespace: hdfs
+spec:
+  type: NodePort
+  ports:
+  - port: 8042
+    nodePort: 30042
+    name: webui
+  selector:
+    name: yarn-nm
+---
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: yarn-nm
+spec:
+  template:
+    metadata:
+      labels:
+        name: yarn-nm
+    spec:
+      hostNetwork: true
+      hostPID: true
+      dnsPolicy: ClusterFirstWithHostNet
+      containers:
+        - name: yarn-nm
+          image: xingtanzjr/hadoop-nodemanager:2.7.5
+          resources:
+            requests:
+              memory: "4096Mi"
+          ports:
+          - containerPort: 8042
+            name: rm
+          env:
+            - name: CORE_CONF_fs_defaultFS
+              value: hdfs://hdfs-namenode-0.hdfs-namenode.hdfs.svc.cluster.local:8020
+            - name: YARN_CONF_yarn_resourcemanager_hostname
+              value: yarn-rm-0.yarn-rm.hdfs.svc.cluster.local
+            - name: YARN_CONF_yarn_nodemanager_aux___services
+              value: mapreduce_shuffle
+            - name: YARN_CONF_yarn_nodemanager_resource_memory___mb
+              value: "6144"
+            - name: YARN_CONF_yarn_scheduler_minimum___allocation___mb
+              value: "512"
+            - name: YARN_CONF_yarn_scheduler_maximum___allocation___mb
+              value: "6144"
+            - name: YARN_CONF_yarn_nodemanager_vmem___check___enabled
+              value: "false"
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                - key: yarn-nm-exclude
+                  operator: DoesNotExist
+      restartPolicy: Always

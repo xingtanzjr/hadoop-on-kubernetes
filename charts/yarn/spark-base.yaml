@@ -15,51 +15,35 @@
 
 # Deleting a daemonset may need some trick. See
 # https://github.com/kubernetes/kubernetes/issues/33245#issuecomment-261250489
-apiVersion: v1
-kind: Service
+apiVersion: apps/v1beta1
+kind: StatefulSet
 metadata:
-  name: yarn-nm-web
-  labels:
-    app: yarn-nm-web
-  namespace: hdfs
+  name: spark-base
 spec:
-  type: NodePort
-  ports:
-  - port: 8042
-    nodePort: 30042
-    name: webui
-  selector:
-    name: yarn-nm
----
-apiVersion: extensions/v1beta1
-kind: DaemonSet
-metadata:
-  name: yarn-nm
-spec:
+  serviceName: "spark-base"
+  replicas: 1
   template:
     metadata:
       labels:
-        name: yarn-nm
+        app: spark-base
     spec:
+      # Use hostNetwork so datanodes connect to namenode without going through an overlay network
+      # like weave. Otherwise, namenode fails to see physical IP address of datanodes.
       hostNetwork: true
       hostPID: true
       dnsPolicy: ClusterFirstWithHostNet
       containers:
-        - name: yarn-nm
-          image: xingtanzjr/hadoop-nodemanager:2.7.5
-          resources:
-            requests:
-              memory: "4096Mi"
-          ports:
-          - containerPort: 8042
-            name: rm
+        - name: spark-base
+          image: xingtanzjr/hadoop-spark-test:2.3.0
           env:
             - name: CORE_CONF_fs_defaultFS
               value: hdfs://hdfs-namenode-0.hdfs-namenode.hdfs.svc.cluster.local:8020
-            - name: YARN_CONF_yarn_resourcemanager_hostname
-              value: yarn-rm-0.yarn-rm.hdfs.svc.cluster.local
             - name: YARN_CONF_yarn_nodemanager_aux___services
               value: mapreduce_shuffle
+            - name: YARN_CONF_yarn_resourcemanager_hostname
+              value: yarn-rm-0.yarn-rm.hdfs.svc.cluster.local
+            - name: CLUSTER_NAME
+              value: hdfs-k8s
             - name: YARN_CONF_yarn_nodemanager_resource_memory___mb
               value: "6144"
             - name: YARN_CONF_yarn_scheduler_minimum___allocation___mb
@@ -68,19 +52,6 @@ spec:
               value: "6144"
             - name: YARN_CONF_yarn_nodemanager_vmem___check___enabled
               value: "false"
-            - name: YARN_CONF_yarn_nodemanager_hostname
-              valueFrom:
-                fieldRef:
-                  fieldPath: status.podIP
-            - name: YARN_CONF_yarn_nodemanager_address
-              valueFrom:
-                fieldRef:
-                  fieldPath: status.podIP
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
-                - key: yarn-nm-exclude
-                  operator: DoesNotExist
+      nodeSelector:
+        yarn-rm-selector: yarn-rm-0
       restartPolicy: Always
