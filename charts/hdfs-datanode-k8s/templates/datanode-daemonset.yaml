@@ -80,6 +80,8 @@ spec:
               value: "false"
             - name: HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check
               value: "false"
+            - name: HDFS_CONF_dfs_replication
+              value: "1"
             # The below uses two loops to make sure the last item does not have comma. It uses index 0
             # for the last item since that is the only special index that helm template gives us.
             - name: HDFS_CONF_dfs_datanode_data_dir
