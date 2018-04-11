@@ -74,6 +74,12 @@ spec:
             {{- end }}
             - name: CORE_CONF_fs_defaultFS
               value: hdfs://hdfs-namenode-0.hdfs-namenode.hdfs.svc.cluster.local:8020
+            - name: HDFS_CONF_dfs_datanode_use_datanode_hostname
+              value: "false"
+            - name: HDFS_CONF_dfs_client_use_datanode_hostname
+              value: "false"
+            - name: HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check
+              value: "false"
             # The below uses two loops to make sure the last item does not have comma. It uses index 0
             # for the last item since that is the only special index that helm template gives us.
             - name: HDFS_CONF_dfs_datanode_data_dir

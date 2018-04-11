@@ -97,6 +97,12 @@ spec:
             {{- end }}
             - name: CLUSTER_NAME
               value: hdfs-k8s
+            - name: HDFS_CONF_dfs_datanode_use_datanode_hostname
+              value: "false"
+            - name: HDFS_CONF_dfs_client_use_datanode_hostname
+              value: "false"
+            - name: HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check
+              value: "false"
           ports:
           - containerPort: 8020
             name: fs

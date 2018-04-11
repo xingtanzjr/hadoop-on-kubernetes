@@ -68,6 +68,10 @@ spec:
               value: "6144"
             - name: YARN_CONF_yarn_nodemanager_vmem___check___enabled
               value: "false"
+            - name: YARN_CONF_yarn_nodemanager_address
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
