@@ -9,4 +9,3 @@ for c in `printenv | perl -sne 'print "$1 " if m/^SPARK_CONF_(.+?)=.*/'`; do
 done
 
 exec /entrypoint.sh $@
-
