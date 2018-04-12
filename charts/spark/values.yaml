@@ -15,8 +15,5 @@
 
 # Default values for template variables.
 
-# hdfs hostname
-hdfs-hostname: hdfs://hdfs-namenode-0.hdfs-namenode.{{.Release.Namespace}}.svc.cluster.local:8020
-
 # history server directory
-history-server-dir: /spark_history_server/history
+historyServerDir: /spark_history_server/history

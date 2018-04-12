@@ -37,15 +37,15 @@ spec:
           image: xingtanzjr/hadoop-spark-test:2.3.0
           env:
             - name: CORE_CONF_fs_defaultFS
-              value: {{ .Values.hdfs-hostname }}
+              value: hdfs://hdfs-namenode-0.hdfs-namenode.{{.Release.Namespace}}.svc.cluster.local:8020
             - name: YARN_CONF_yarn_resourcemanager_hostname
               value: yarn-rm-0.yarn-rm.{{.Release.Namespace}}.svc.cluster.local
             - name: SPARK_CONF_spark_eventLog_enabled
               value: "true"
             - name: spark_eventLog_dir
-              value: {{ .Values.history-server-dir }}
+              value: {{ .Values.historyServerDir }}
             - name: SPARK_CONF_spark_eventLog_dir
-              value: {{ .Values.hdfs-hostname }}{{ .Values.history-server-dir }}
+              value: hdfs://hdfs-namenode-0.hdfs-namenode.{{.Release.Namespace}}.svc.cluster.local:8020{{ .Values.historyServerDir}}
       nodeSelector:
         yarn-rm-selector: yarn-rm-0
       restartPolicy: Always
