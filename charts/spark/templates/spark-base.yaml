@@ -38,20 +38,14 @@ spec:
           env:
             - name: CORE_CONF_fs_defaultFS
               value: hdfs://hdfs-namenode-0.hdfs-namenode.{{.Release.Namespace}}.svc.cluster.local:8020
-            - name: YARN_CONF_yarn_nodemanager_aux___services
-              value: mapreduce_shuffle
             - name: YARN_CONF_yarn_resourcemanager_hostname
               value: yarn-rm-0.yarn-rm.{{.Release.Namespace}}.svc.cluster.local
-            - name: CLUSTER_NAME
-              value: hdfs-k8s
-            - name: YARN_CONF_yarn_nodemanager_resource_memory___mb
-              value: "6144"
-            - name: YARN_CONF_yarn_scheduler_minimum___allocation___mb
-              value: "512"
-            - name: YARN_CONF_yarn_scheduler_maximum___allocation___mb
-              value: "6144"
-            - name: YARN_CONF_yarn_nodemanager_vmem___check___enabled
-              value: "false"
+            - name: SPARK_CONF_spark_eventLog_enabled
+              value: "true"
+            - name: spark_eventLog_dir
+              value: "/spark_history_server/history"
+            - name: SPARK_CONF_spark_eventLog_dir
+              value: "${CORE_CONF_fs_defaultFS}${spark_eventLog_dir}"
       nodeSelector:
         yarn-rm-selector: yarn-rm-0
       restartPolicy: Always
