@@ -9,5 +9,7 @@ RUN cp $SPARK_HOME/conf/spark-defaults.conf.template $SPARK_HOME/conf/spark-defa
 WORKDIR $SPARK_HOME
 ENV PATH $SPARK_HOME/bin:$PATH
 ADD spark-entrypoint.sh /
+ADD spark-historyserver.sh /
 RUN chmod a+x /spark-entrypoint.sh
+RUN chmod a+x /spark-historyserver.sh
 ENTRYPOINT ["/spark-entrypoint.sh"]
