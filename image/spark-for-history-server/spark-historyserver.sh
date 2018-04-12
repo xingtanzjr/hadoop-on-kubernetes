@@ -9,3 +9,4 @@ else
 fi  
 
 exec ./sbin/start-history-server.sh "${SPARK_CONF_spark_eventLog_dir}"
+tail -f /spark-historyserver.sh
