@@ -25,7 +25,7 @@ spec:
   type: NodePort
   ports:
   - port: 18080
-    nodePort: 31880
+    nodePort: 30880
     name: webui
   selector:
     app: spark-base
