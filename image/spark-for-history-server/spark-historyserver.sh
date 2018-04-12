@@ -9,4 +9,6 @@ else
 fi  
 
 exec ./sbin/start-history-server.sh "${SPARK_CONF_spark_eventLog_dir}"
+echo "start spark history server done."
 tail -f /spark-historyserver.sh
+echo "haha"
