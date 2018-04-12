@@ -34,7 +34,8 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: spark-base
-          image: xingtanzjr/hadoop-spark-test:2.3.0
+          image: xingtanzjr/spark-base:2.3.0
+          command: ["/spark-historyserver.sh"]
           env:
             - name: CORE_CONF_fs_defaultFS
               value: hdfs://hdfs-namenode-0.hdfs-namenode.{{.Release.Namespace}}.svc.cluster.local:8020
