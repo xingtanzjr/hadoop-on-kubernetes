@@ -21,9 +21,6 @@ spec:
       labels:
         app: test-bbox
     spec:
-      hostNetwork: true
-      hostPID: true
-      dnsPolicy: ClusterFirstWithHostNet
       containers:
         - image: busybox
           name: busybox
