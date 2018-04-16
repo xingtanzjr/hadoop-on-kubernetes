@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-bbox
+  labels:
+    app: test-bbox
+spec:
+  clusterIP: None
+  selector:
+    app: test-bbox
+---
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: test-bbox
+spec:
+  serviceName: "test-bbox"
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: test-bbox
+    spec:
+      hostNetwork: true
+      hostPID: true
+      dnsPolicy: ClusterFirstWithHostNet
+      containers:
+        - image: busybox
+          name: busybox
+          command:
+            - sleep
+            - "7200"
+          
