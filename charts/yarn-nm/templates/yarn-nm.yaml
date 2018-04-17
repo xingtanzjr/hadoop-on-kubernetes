@@ -60,11 +60,11 @@ spec:
             - name: YARN_CONF_yarn_nodemanager_aux___services
               value: mapreduce_shuffle
             - name: YARN_CONF_yarn_nodemanager_resource_memory___mb
-              value: "{{.Values.resource-mem}}"
+              value: "{{.Values.resourceMem}}"
             - name: YARN_CONF_yarn_scheduler_minimum___allocation___mb
               value: "512"
             - name: YARN_CONF_yarn_scheduler_maximum___allocation___mb
-              value: "{{.max-all-mem}}"
+              value: "{{.Values.maxAllocMem}}"
             - name: YARN_CONF_yarn_nodemanager_vmem___check___enabled
               value: "false"
             - name: YARN_CONF_yarn_log__aggregation___enable

@@ -14,5 +14,5 @@
 # limitations under the License.
 
 # Default values for template variables.
-max-all-mem: 6144
-resource-mem: 6144
+maxAllocMem: 10240
+resourceMem: 20480
