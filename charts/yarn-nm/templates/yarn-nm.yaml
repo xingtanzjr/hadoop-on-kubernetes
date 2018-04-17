@@ -21,7 +21,6 @@ metadata:
   name: yarn-nm-web
   labels:
     app: yarn-nm-web
-  namespace: hdfs
 spec:
   type: NodePort
   ports:
