@@ -15,6 +15,15 @@
 
 # A headless service to create DNS records.
 apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bootstrap-script
+data:
+  start-history-server.sh: |
+    #!/bin/bash
+    $HADOOP_PREFIX/sbin/mr-jobhistory-daemon.sh --config $HADOOP_CONF_DIR start historyserver
+---
+apiVersion: v1
 kind: Service
 metadata:
   name: hadoop-hisotry-server-web
@@ -69,11 +78,7 @@ spec:
         - name: hadoop-hisotry-server
           image: xingtanzjr/hadoop-base:2.7.5
           args:
-            - "$HADOOP_PREFIX/sbin/mr-jobhistory-daemon.sh"
-            - "--config"
-            - "$HADOOP_CONF_DIR"
-            - "start"
-            - "historyserver"
+            - "/bootscript/start-history-server.sh"
           env:
             - name: CORE_CONF_fs_defaultFS
               value: hdfs://hdfs-namenode-0.hdfs-namenode.{{.Release.Namespace}}.svc.cluster.local:8020
@@ -98,6 +103,13 @@ spec:
           ports:
           - containerPort: 19888
             name: webui
+          volumeMounts:
+          - name: bootscript
+            mountPath: /bootscript
+      volumes:
+      - name: bootscript
+        configMap:
+          name: bootstrap-script
       nodeSelector:
         yarn-rm-selector: yarn-rm-0
       restartPolicy: Always
