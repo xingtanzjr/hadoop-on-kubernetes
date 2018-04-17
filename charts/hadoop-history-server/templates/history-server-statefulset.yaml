@@ -21,7 +21,7 @@ metadata:
 data:
   start-history-server.sh: |
     #!/bin/bash
-    $HADOOP_PREFIX/bin/yarn --config $HADOOP_CONF_DIR historyserver
+    $HADOOP_PREFIX/bin/mapred --config $HADOOP_CONF_DIR historyserver
 ---
 apiVersion: v1
 kind: Service
