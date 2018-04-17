@@ -17,9 +17,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: hadoop-hisotry-server
+  name: hadoop-hisotry-server-web
   labels:
-    app: hadoop-hisotry-server
+    app: hadoop-hisotry-server-web
 spec:
   type: NodePort
   ports:
