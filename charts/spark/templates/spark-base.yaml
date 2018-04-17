@@ -30,6 +30,20 @@ spec:
   selector:
     app: spark-base
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spark-base
+  labels:
+    app: spark-base
+spec:
+  ports:
+  - port: 18080
+    name: history-server
+  clusterIP: None
+  selector:
+    app: spark-base
+---
 apiVersion: apps/v1beta1
 kind: StatefulSet
 metadata:
@@ -62,6 +76,11 @@ spec:
               value: {{ .Values.historyServerDir }}
             - name: SPARK_CONF_spark_eventLog_dir
               value: hdfs://hdfs-namenode-0.hdfs-namenode.{{.Release.Namespace}}.svc.cluster.local:8020{{ .Values.historyServerDir}}
+            - name: SPARK_CONF_spark_yarn_historyServer_address
+              value: http://spark-base-0.spark-base.{{.Release.Namespace}}.svc.cluster.local:18080
+          ports:
+          - containerPort: 18080
+            name: history-server
       nodeSelector:
         yarn-rm-selector: yarn-rm-0
       restartPolicy: Always
