@@ -78,7 +78,9 @@ spec:
         - name: hadoop-hisotry-server
           image: xingtanzjr/hadoop-base:2.7.5
           args:
+            - "/bin/bash"
             - "/bootscript/start-history-server.sh"
+            - "-d"
           env:
             - name: CORE_CONF_fs_defaultFS
               value: hdfs://hdfs-namenode-0.hdfs-namenode.{{.Release.Namespace}}.svc.cluster.local:8020
