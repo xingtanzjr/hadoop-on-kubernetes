@@ -1,0 +1,20 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: test-dns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-dns
+  template:
+    metadata:
+      labels:
+        app: test-dns
+    spec:
+      containers:
+      - image: busybox
+        name: test-dns
+        command:
+          - sleep
+          - "7200"

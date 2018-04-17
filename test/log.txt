@@ -1,0 +1,875 @@
+Configuring core
+ - Setting fs.defaultFS=hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020
+Configuring hdfs
+Configuring yarn
+ - Setting yarn.nodemanager.vmem-check-enabled=false
+ - Setting yarn.log-aggregation-enable=true
+ - Setting yarn.scheduler.maximum-allocation-mb=6144
+ - Setting yarn.nodemanager.aux-services=mapreduce_shuffle
+ - Setting yarn.resourcemanager.hostname=yarn-rm-0.yarn-rm.default.svc.cluster.local
+ - Setting yarn.scheduler.minimum-allocation-mb=512
+ - Setting yarn.nodemanager.resource.memory-mb=6144
+Configuring httpfs
+Configuring kms
+Configuring kms
+Configuring for multihomed network
+No host resolver specified. Using distro default. (Specify HOST_RESOLVER to change)
+18/04/16 10:30:55 INFO nodemanager.NodeManager: STARTUP_MSG: 
+/************************************************************
+STARTUP_MSG: Starting NodeManager
+STARTUP_MSG:   host = yarn-nm-0.yarn-nm.default.svc.cluster.local/10.44.0.4
+STARTUP_MSG:   args = []
+STARTUP_MSG:   version = 2.7.5
+STARTUP_MSG:   classpath = /etc/hadoop:/etc/hadoop:/etc/hadoop:/opt/hadoop-2.7.5/share/hadoop/common/lib/jetty-6.1.26.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/jackson-core-asl-1.9.13.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/jsch-0.1.54.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/commons-lang-2.6.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/commons-collections-3.2.2.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/activation-1.1.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/netty-3.6.2.Final.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/commons-beanutils-core-1.8.0.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/curator-recipes-2.7.1.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/stax-api-1.0-2.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/xmlenc-0.52.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/jetty-util-6.1.26.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/httpcore-4.2.5.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/commons-net-3.1.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/servlet-api-2.5.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/jersey-json-1.9.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/log4j-1.2.17.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/commons-logging-1.1.3.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/jersey-core-1.9.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/jackson-xc-1.9.13.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/jaxb-impl-2.2.3-1.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/commons-configuration-1.6.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/jettison-1.1.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/gson-2.2.4.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/protobuf-java-2.5.0.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/commons-compress-1.4.1.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/api-util-1.0.0-M20.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/apacheds-i18n-2.0.0-M15.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/zookeeper-3.4.6.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/avro-1.7.4.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/commons-httpclient-3.1.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/commons-math3-3.1.1.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/jsr305-3.0.0.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/commons-beanutils-1.7.0.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/jersey-server-1.9.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/curator-client-2.7.1.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/httpclient-4.2.5.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/snappy-java-1.0.4.1.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/commons-codec-1.4.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/hamcrest-core-1.3.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/commons-cli-1.2.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/commons-digester-1.8.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/junit-4.11.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/hadoop-auth-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/curator-framework-2.7.1.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/jetty-sslengine-6.1.26.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/commons-io-2.4.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/guava-11.0.2.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/java-xmlbuilder-0.4.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/asm-3.2.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/htrace-core-3.1.0-incubating.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/apacheds-kerberos-codec-2.0.0-M15.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/api-asn1-api-1.0.0-M20.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/paranamer-2.3.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/jackson-mapper-asl-1.9.13.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/jaxb-api-2.2.2.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/xz-1.0.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/mockito-all-1.8.5.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/hadoop-annotations-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/jsp-api-2.1.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/jackson-jaxrs-1.9.13.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/jets3t-0.9.0.jar:/opt/hadoop-2.7.5/share/hadoop/common/lib/slf4j-api-1.7.10.jar:/opt/hadoop-2.7.5/share/hadoop/common/hadoop-nfs-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/common/hadoop-common-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/common/hadoop-common-2.7.5-tests.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/jetty-6.1.26.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/jackson-core-asl-1.9.13.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/commons-lang-2.6.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/xml-apis-1.3.04.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/netty-3.6.2.Final.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/xmlenc-0.52.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/jetty-util-6.1.26.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/servlet-api-2.5.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/log4j-1.2.17.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/commons-logging-1.1.3.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/jersey-core-1.9.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/leveldbjni-all-1.8.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/protobuf-java-2.5.0.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/xercesImpl-2.9.1.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/jsr305-3.0.0.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/jersey-server-1.9.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/commons-codec-1.4.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/commons-cli-1.2.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/commons-io-2.4.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/guava-11.0.2.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/commons-daemon-1.0.13.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/asm-3.2.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/htrace-core-3.1.0-incubating.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/jackson-mapper-asl-1.9.13.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/lib/netty-all-4.0.23.Final.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/hadoop-hdfs-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/hadoop-hdfs-2.7.5-tests.jar:/opt/hadoop-2.7.5/share/hadoop/hdfs/hadoop-hdfs-nfs-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jetty-6.1.26.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jackson-core-asl-1.9.13.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/commons-lang-2.6.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/commons-collections-3.2.2.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/activation-1.1.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jersey-client-1.9.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/netty-3.6.2.Final.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/stax-api-1.0-2.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jetty-util-6.1.26.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/servlet-api-2.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jersey-json-1.9.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/log4j-1.2.17.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/commons-logging-1.1.3.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jersey-core-1.9.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jackson-xc-1.9.13.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jaxb-impl-2.2.3-1.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/leveldbjni-all-1.8.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jettison-1.1.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/protobuf-java-2.5.0.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/commons-compress-1.4.1.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/zookeeper-3.4.6.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/guice-3.0.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jsr305-3.0.0.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jersey-server-1.9.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/guice-servlet-3.0.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/commons-codec-1.4.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/commons-cli-1.2.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/commons-io-2.4.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/guava-11.0.2.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/javax.inject-1.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/asm-3.2.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jersey-guice-1.9.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jackson-mapper-asl-1.9.13.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/aopalliance-1.0.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/zookeeper-3.4.6-tests.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jaxb-api-2.2.2.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/xz-1.0.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jackson-jaxrs-1.9.13.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-applications-unmanaged-am-launcher-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-server-tests-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-server-web-proxy-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-server-sharedcachemanager-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-server-nodemanager-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-client-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-common-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-applications-distributedshell-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-server-resourcemanager-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-api-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-server-common-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-registry-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-server-applicationhistoryservice-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/jackson-core-asl-1.9.13.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/netty-3.6.2.Final.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/log4j-1.2.17.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/jersey-core-1.9.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/leveldbjni-all-1.8.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/protobuf-java-2.5.0.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/commons-compress-1.4.1.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/guice-3.0.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/avro-1.7.4.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/jersey-server-1.9.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/guice-servlet-3.0.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/snappy-java-1.0.4.1.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/hamcrest-core-1.3.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/junit-4.11.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/commons-io-2.4.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/javax.inject-1.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/asm-3.2.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/paranamer-2.3.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/jersey-guice-1.9.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/jackson-mapper-asl-1.9.13.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/aopalliance-1.0.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/xz-1.0.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/lib/hadoop-annotations-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/hadoop-mapreduce-client-shuffle-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/hadoop-mapreduce-client-hs-plugins-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-2.7.5-tests.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/hadoop-mapreduce-client-common-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/hadoop-mapreduce-client-hs-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/hadoop-mapreduce-client-app-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/mapreduce/hadoop-mapreduce-client-core-2.7.5.jar:/contrib/capacity-scheduler/*.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-applications-unmanaged-am-launcher-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-server-tests-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-server-web-proxy-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-server-sharedcachemanager-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-server-nodemanager-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-client-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-common-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-applications-distributedshell-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-server-resourcemanager-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-api-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-server-common-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-registry-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-server-applicationhistoryservice-2.7.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jetty-6.1.26.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jackson-core-asl-1.9.13.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/commons-lang-2.6.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/commons-collections-3.2.2.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/activation-1.1.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jersey-client-1.9.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/netty-3.6.2.Final.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/stax-api-1.0-2.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jetty-util-6.1.26.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/servlet-api-2.5.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jersey-json-1.9.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/log4j-1.2.17.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/commons-logging-1.1.3.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jersey-core-1.9.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jackson-xc-1.9.13.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jaxb-impl-2.2.3-1.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/leveldbjni-all-1.8.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jettison-1.1.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/protobuf-java-2.5.0.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/commons-compress-1.4.1.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/zookeeper-3.4.6.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/guice-3.0.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jsr305-3.0.0.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jersey-server-1.9.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/guice-servlet-3.0.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/commons-codec-1.4.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/commons-cli-1.2.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/commons-io-2.4.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/guava-11.0.2.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/javax.inject-1.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/asm-3.2.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jersey-guice-1.9.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jackson-mapper-asl-1.9.13.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/aopalliance-1.0.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/zookeeper-3.4.6-tests.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jaxb-api-2.2.2.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/xz-1.0.jar:/opt/hadoop-2.7.5/share/hadoop/yarn/lib/jackson-jaxrs-1.9.13.jar:/etc/hadoop/nm-config/log4j.properties
+STARTUP_MSG:   build = https://shv@git-wip-us.apache.org/repos/asf/hadoop.git -r 18065c2b6806ed4aa6a3187d77cbe21bb3dba075; compiled by 'kshvachk' on 2017-12-16T01:06Z
+STARTUP_MSG:   java = 1.8.0_162
+************************************************************/
+18/04/16 10:30:55 INFO nodemanager.NodeManager: registered UNIX signal handlers for [TERM, HUP, INT]
+18/04/16 10:30:56 INFO event.AsyncDispatcher: Registering class org.apache.hadoop.yarn.server.nodemanager.containermanager.container.ContainerEventType for class org.apache.hadoop.yarn.server.nodemanager.containermanager.ContainerManagerImpl$ContainerEventDispatcher
+18/04/16 10:30:56 INFO event.AsyncDispatcher: Registering class org.apache.hadoop.yarn.server.nodemanager.containermanager.application.ApplicationEventType for class org.apache.hadoop.yarn.server.nodemanager.containermanager.ContainerManagerImpl$ApplicationEventDispatcher
+18/04/16 10:30:56 INFO event.AsyncDispatcher: Registering class org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.event.LocalizationEventType for class org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ResourceLocalizationService
+18/04/16 10:30:56 INFO event.AsyncDispatcher: Registering class org.apache.hadoop.yarn.server.nodemanager.containermanager.AuxServicesEventType for class org.apache.hadoop.yarn.server.nodemanager.containermanager.AuxServices
+18/04/16 10:30:56 INFO event.AsyncDispatcher: Registering class org.apache.hadoop.yarn.server.nodemanager.containermanager.monitor.ContainersMonitorEventType for class org.apache.hadoop.yarn.server.nodemanager.containermanager.monitor.ContainersMonitorImpl
+18/04/16 10:30:56 INFO event.AsyncDispatcher: Registering class org.apache.hadoop.yarn.server.nodemanager.containermanager.launcher.ContainersLauncherEventType for class org.apache.hadoop.yarn.server.nodemanager.containermanager.launcher.ContainersLauncher
+18/04/16 10:30:56 INFO event.AsyncDispatcher: Registering class org.apache.hadoop.yarn.server.nodemanager.ContainerManagerEventType for class org.apache.hadoop.yarn.server.nodemanager.containermanager.ContainerManagerImpl
+18/04/16 10:30:56 INFO event.AsyncDispatcher: Registering class org.apache.hadoop.yarn.server.nodemanager.NodeManagerEventType for class org.apache.hadoop.yarn.server.nodemanager.NodeManager
+18/04/16 10:30:56 INFO impl.MetricsConfig: loaded properties from hadoop-metrics2.properties
+18/04/16 10:30:56 INFO impl.MetricsSystemImpl: Scheduled snapshot period at 10 second(s).
+18/04/16 10:30:56 INFO impl.MetricsSystemImpl: NodeManager metrics system started
+18/04/16 10:30:56 INFO event.AsyncDispatcher: Registering class org.apache.hadoop.yarn.server.nodemanager.containermanager.loghandler.event.LogHandlerEventType for class org.apache.hadoop.yarn.server.nodemanager.containermanager.logaggregation.LogAggregationService
+18/04/16 10:30:56 INFO event.AsyncDispatcher: Registering class org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.sharedcache.SharedCacheUploadEventType for class org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.sharedcache.SharedCacheUploadService
+18/04/16 10:30:56 INFO localizer.ResourceLocalizationService: per directory file limit = 8192
+18/04/16 10:30:56 INFO event.AsyncDispatcher: Registering class org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.event.LocalizerEventType for class org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ResourceLocalizationService$LocalizerTracker
+18/04/16 10:30:56 WARN containermanager.AuxServices: The Auxilurary Service named 'mapreduce_shuffle' in the configuration is for class org.apache.hadoop.mapred.ShuffleHandler which has a name of 'httpshuffle'. Because these are not the same tools trying to send ServiceData and read Service Meta Data may have issues unless the refer to the name in the config.
+18/04/16 10:30:56 INFO containermanager.AuxServices: Adding auxiliary service httpshuffle, "mapreduce_shuffle"
+18/04/16 10:30:56 INFO monitor.ContainersMonitorImpl:  Using ResourceCalculatorPlugin : org.apache.hadoop.yarn.util.LinuxResourceCalculatorPlugin@74d1dc36
+18/04/16 10:30:56 INFO monitor.ContainersMonitorImpl:  Using ResourceCalculatorProcessTree : null
+18/04/16 10:30:56 INFO monitor.ContainersMonitorImpl: Physical memory check enabled: true
+18/04/16 10:30:56 INFO monitor.ContainersMonitorImpl: Virtual memory check enabled: false
+18/04/16 10:30:56 INFO nodemanager.NodeStatusUpdaterImpl: Initialized nodemanager for null: physical-memory=6144 virtual-memory=12903 virtual-cores=8
+18/04/16 10:31:06 INFO ipc.CallQueueManager: Using callQueue: class java.util.concurrent.LinkedBlockingQueue queueCapacity: 2000
+18/04/16 10:31:06 INFO ipc.Server: Starting Socket Reader #1 for port 35906
+18/04/16 10:31:07 INFO pb.RpcServerFactoryPBImpl: Adding protocol org.apache.hadoop.yarn.api.ContainerManagementProtocolPB to the server
+18/04/16 10:31:07 INFO containermanager.ContainerManagerImpl: Blocking new container-requests as container manager rpc server is still starting.
+18/04/16 10:31:07 INFO ipc.Server: IPC Server Responder: starting
+18/04/16 10:31:07 INFO ipc.Server: IPC Server listener on 35906: starting
+18/04/16 10:31:07 INFO security.NMContainerTokenSecretManager: Updating node address : yarn-nm-0.yarn-nm.default.svc.cluster.local:35906
+18/04/16 10:31:17 INFO ipc.CallQueueManager: Using callQueue: class java.util.concurrent.LinkedBlockingQueue queueCapacity: 500
+18/04/16 10:31:17 INFO ipc.Server: Starting Socket Reader #1 for port 8040
+18/04/16 10:31:17 INFO pb.RpcServerFactoryPBImpl: Adding protocol org.apache.hadoop.yarn.server.nodemanager.api.LocalizationProtocolPB to the server
+18/04/16 10:31:17 INFO ipc.Server: IPC Server Responder: starting
+18/04/16 10:31:17 INFO ipc.Server: IPC Server listener on 8040: starting
+18/04/16 10:31:17 INFO localizer.ResourceLocalizationService: Localizer started on port 8040
+18/04/16 10:31:17 INFO mapred.IndexCache: IndexCache created with max memory = 10485760
+18/04/16 10:31:17 INFO mapred.ShuffleHandler: httpshuffle listening on port 13562
+18/04/16 10:31:17 INFO containermanager.ContainerManagerImpl: ContainerManager started at yarn-nm-0.yarn-nm.default.svc.cluster.local/10.44.0.4:35906
+18/04/16 10:31:17 INFO containermanager.ContainerManagerImpl: ContainerManager bound to 0.0.0.0/0.0.0.0:0
+18/04/16 10:31:17 INFO webapp.WebServer: Instantiating NMWebApp at 0.0.0.0:8042
+18/04/16 10:31:17 INFO mortbay.log: Logging to org.slf4j.impl.Log4jLoggerAdapter(org.mortbay.log) via org.mortbay.log.Slf4jLog
+18/04/16 10:31:17 INFO server.AuthenticationFilter: Unable to initialize FileSignerSecretProvider, falling back to use random secrets.
+18/04/16 10:31:17 INFO http.HttpRequestLog: Http request log for http.requests.nodemanager is not defined
+18/04/16 10:31:17 INFO http.HttpServer2: Added global filter 'safety' (class=org.apache.hadoop.http.HttpServer2$QuotingInputFilter)
+18/04/16 10:31:17 INFO http.HttpServer2: Added filter static_user_filter (class=org.apache.hadoop.http.lib.StaticUserWebFilter$StaticUserFilter) to context node
+18/04/16 10:31:17 INFO http.HttpServer2: Added filter static_user_filter (class=org.apache.hadoop.http.lib.StaticUserWebFilter$StaticUserFilter) to context static
+18/04/16 10:31:17 INFO http.HttpServer2: Added filter static_user_filter (class=org.apache.hadoop.http.lib.StaticUserWebFilter$StaticUserFilter) to context logs
+18/04/16 10:31:17 INFO http.HttpServer2: adding path spec: /node/*
+18/04/16 10:31:17 INFO http.HttpServer2: adding path spec: /ws/*
+18/04/16 10:31:17 INFO webapp.WebApps: Registered webapp guice modules
+18/04/16 10:31:17 INFO http.HttpServer2: Jetty bound to port 8042
+18/04/16 10:31:17 INFO mortbay.log: jetty-6.1.26
+18/04/16 10:31:17 INFO mortbay.log: Extract jar:file:/opt/hadoop-2.7.5/share/hadoop/yarn/hadoop-yarn-common-2.7.5.jar!/webapps/node to /tmp/Jetty_0_0_0_0_8042_node____19tj0x/webapp
+Apr 16, 2018 10:31:17 AM com.sun.jersey.guice.spi.container.GuiceComponentProviderFactory register
+INFO: Registering org.apache.hadoop.yarn.server.nodemanager.webapp.NMWebServices as a root resource class
+Apr 16, 2018 10:31:17 AM com.sun.jersey.guice.spi.container.GuiceComponentProviderFactory register
+INFO: Registering org.apache.hadoop.yarn.webapp.GenericExceptionHandler as a provider class
+Apr 16, 2018 10:31:17 AM com.sun.jersey.guice.spi.container.GuiceComponentProviderFactory register
+INFO: Registering org.apache.hadoop.yarn.server.nodemanager.webapp.JAXBContextResolver as a provider class
+Apr 16, 2018 10:31:17 AM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+INFO: Initiating Jersey application, version 'Jersey: 1.9 09/02/2011 11:17 AM'
+Apr 16, 2018 10:31:17 AM com.sun.jersey.guice.spi.container.GuiceComponentProviderFactory getComponentProvider
+INFO: Binding org.apache.hadoop.yarn.server.nodemanager.webapp.JAXBContextResolver to GuiceManagedComponentProvider with the scope "Singleton"
+Apr 16, 2018 10:31:18 AM com.sun.jersey.guice.spi.container.GuiceComponentProviderFactory getComponentProvider
+INFO: Binding org.apache.hadoop.yarn.webapp.GenericExceptionHandler to GuiceManagedComponentProvider with the scope "Singleton"
+Apr 16, 2018 10:31:18 AM com.sun.jersey.guice.spi.container.GuiceComponentProviderFactory getComponentProvider
+INFO: Binding org.apache.hadoop.yarn.server.nodemanager.webapp.NMWebServices to GuiceManagedComponentProvider with the scope "Singleton"
+18/04/16 10:31:18 INFO mortbay.log: Started HttpServer2$SelectChannelConnectorWithSafeStartup@0.0.0.0:8042
+18/04/16 10:31:18 INFO webapp.WebApps: Web app node started at 8042
+18/04/16 10:31:18 INFO client.RMProxy: Connecting to ResourceManager at yarn-rm-0.yarn-rm.default.svc.cluster.local/10.32.0.7:8031
+18/04/16 10:31:18 INFO nodemanager.NodeStatusUpdaterImpl: Sending out 0 NM container statuses: []
+18/04/16 10:31:18 INFO nodemanager.NodeStatusUpdaterImpl: Registering with RM using containers :[]
+18/04/16 10:31:18 INFO security.NMContainerTokenSecretManager: Rolling master-key for container-tokens, got key with id -1095396181
+18/04/16 10:31:18 INFO security.NMTokenSecretManagerInNM: Rolling master-key for container-tokens, got key with id -1698777007
+18/04/16 10:31:18 INFO nodemanager.NodeStatusUpdaterImpl: Registered with ResourceManager as yarn-nm-0.yarn-nm.default.svc.cluster.local:35906 with total resource of <memory:6144, vCores:8>
+18/04/16 10:31:18 INFO nodemanager.NodeStatusUpdaterImpl: Notifying ContainerManager to unblock new container-requests
+18/04/16 10:34:42 INFO ipc.Server: Auth successful for appattempt_1523874606393_0001_000001 (auth:SIMPLE)
+18/04/16 10:34:42 INFO containermanager.ContainerManagerImpl: Start request for container_1523874606393_0001_01_000001 by user root
+18/04/16 10:34:42 INFO containermanager.ContainerManagerImpl: Creating a new application reference for app application_1523874606393_0001
+18/04/16 10:34:42 INFO nodemanager.NMAuditLogger: USER=root	IP=10.32.0.7	OPERATION=Start Container Request	TARGET=ContainerManageImpl	RESULT=SUCCESS	APPID=application_1523874606393_0001	CONTAINERID=container_1523874606393_0001_01_000001
+18/04/16 10:34:42 INFO application.ApplicationImpl: Application application_1523874606393_0001 transitioned from NEW to INITING
+18/04/16 10:34:42 INFO application.ApplicationImpl: Adding container_1523874606393_0001_01_000001 to application application_1523874606393_0001
+18/04/16 10:34:43 WARN logaggregation.AppLogAggregatorImpl: rollingMonitorInterval is set as -1. The log rolling mornitoring interval is disabled. The logs will be aggregated after this application is finished.
+18/04/16 10:34:43 INFO application.ApplicationImpl: Application application_1523874606393_0001 transitioned from INITING to RUNNING
+18/04/16 10:34:43 INFO container.ContainerImpl: Container container_1523874606393_0001_01_000001 transitioned from NEW to LOCALIZING
+18/04/16 10:34:43 INFO containermanager.AuxServices: Got event CONTAINER_INIT for appId application_1523874606393_0001
+18/04/16 10:34:43 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0001/job.splitmetainfo transitioned from INIT to DOWNLOADING
+18/04/16 10:34:43 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0001/job.jar transitioned from INIT to DOWNLOADING
+18/04/16 10:34:43 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0001/job.split transitioned from INIT to DOWNLOADING
+18/04/16 10:34:43 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0001/job.xml transitioned from INIT to DOWNLOADING
+18/04/16 10:34:43 INFO localizer.ResourceLocalizationService: Created localizer for container_1523874606393_0001_01_000001
+18/04/16 10:34:43 INFO localizer.ResourceLocalizationService: Writing credentials to the nmPrivate file /tmp/hadoop-root/nm-local-dir/nmPrivate/container_1523874606393_0001_01_000001.tokens. Credentials list: 
+18/04/16 10:34:43 INFO nodemanager.DefaultContainerExecutor: Initializing user root
+18/04/16 10:34:43 INFO nodemanager.DefaultContainerExecutor: Copying from /tmp/hadoop-root/nm-local-dir/nmPrivate/container_1523874606393_0001_01_000001.tokens to /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0001/container_1523874606393_0001_01_000001.tokens
+18/04/16 10:34:43 INFO nodemanager.DefaultContainerExecutor: Localizer CWD set to /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0001 = file:/tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0001
+18/04/16 10:34:43 WARN localizer.ResourceLocalizationService: { hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0001/job.splitmetainfo, 1523874881457, FILE, null } failed: 
+java.nio.channels.UnresolvedAddressException
+	at sun.nio.ch.Net.checkAddress(Net.java:101)
+	at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:622)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:192)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:531)
+	at org.apache.hadoop.hdfs.DFSClient.newConnectedPeer(DFSClient.java:3450)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.nextTcpPeer(BlockReaderFactory.java:777)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.getRemoteBlockReaderFromTcp(BlockReaderFactory.java:694)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.build(BlockReaderFactory.java:355)
+	at org.apache.hadoop.hdfs.DFSInputStream.blockSeekTo(DFSInputStream.java:665)
+	at org.apache.hadoop.hdfs.DFSInputStream.readWithStrategy(DFSInputStream.java:874)
+	at org.apache.hadoop.hdfs.DFSInputStream.read(DFSInputStream.java:926)
+	at java.io.DataInputStream.read(DataInputStream.java:100)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:86)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:60)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:120)
+	at org.apache.hadoop.fs.FileUtil.copy(FileUtil.java:366)
+	at org.apache.hadoop.yarn.util.FSDownload.copy(FSDownload.java:267)
+	at org.apache.hadoop.yarn.util.FSDownload.access$000(FSDownload.java:63)
+	at org.apache.hadoop.yarn.util.FSDownload$2.run(FSDownload.java:361)
+	at org.apache.hadoop.yarn.util.FSDownload$2.run(FSDownload.java:359)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1754)
+	at org.apache.hadoop.yarn.util.FSDownload.call(FSDownload.java:359)
+	at org.apache.hadoop.yarn.util.FSDownload.call(FSDownload.java:62)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+18/04/16 10:34:43 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0001/job.splitmetainfo(->/tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0001/filecache/10/job.splitmetainfo) transitioned from DOWNLOADING to FAILED
+18/04/16 10:34:43 INFO container.ContainerImpl: Container container_1523874606393_0001_01_000001 transitioned from LOCALIZING to LOCALIZATION_FAILED
+18/04/16 10:34:43 INFO localizer.LocalResourcesTrackerImpl: Container container_1523874606393_0001_01_000001 sent RELEASE event on a resource request { hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0001/job.splitmetainfo, 1523874881457, FILE, null } not present in cache.
+18/04/16 10:34:43 WARN nodemanager.NMAuditLogger: USER=root	OPERATION=Container Finished - Failed	TARGET=ContainerImpl	RESULT=FAILURE	DESCRIPTION=Container failed with state: LOCALIZATION_FAILED	APPID=application_1523874606393_0001	CONTAINERID=container_1523874606393_0001_01_000001
+java.io.InterruptedIOException: Call interrupted
+	at org.apache.hadoop.ipc.Client.call(Client.java:1470)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1413)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:229)
+	at com.sun.proxy.$Proxy79.heartbeat(Unknown Source)
+	at org.apache.hadoop.yarn.server.nodemanager.api.impl.pb.client.LocalizationProtocolPBClientImpl.heartbeat(LocalizationProtocolPBClientImpl.java:63)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.localizeFiles(ContainerLocalizer.java:255)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.runLocalization(ContainerLocalizer.java:169)
+	at org.apache.hadoop.yarn.server.nodemanager.DefaultContainerExecutor.startLocalizer(DefaultContainerExecutor.java:130)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ResourceLocalizationService$LocalizerRunner.run(ResourceLocalizationService.java:1117)
+18/04/16 10:34:43 INFO container.ContainerImpl: Container container_1523874606393_0001_01_000001 transitioned from LOCALIZATION_FAILED to DONE
+18/04/16 10:34:43 INFO application.ApplicationImpl: Removing container_1523874606393_0001_01_000001 from application application_1523874606393_0001
+18/04/16 10:34:43 INFO logaggregation.AppLogAggregatorImpl: Considering container container_1523874606393_0001_01_000001 for log-aggregation
+18/04/16 10:34:43 INFO containermanager.AuxServices: Got event CONTAINER_STOP for appId application_1523874606393_0001
+18/04/16 10:34:43 INFO nodemanager.DefaultContainerExecutor: Deleting path : /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0001/filecache/11
+18/04/16 10:34:43 WARN nodemanager.DefaultContainerExecutor: delete returned false for path: [/tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0001/filecache/11]
+18/04/16 10:34:43 INFO nodemanager.DefaultContainerExecutor: Deleting path : /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0001/filecache/11_tmp
+18/04/16 10:34:43 WARN nodemanager.DefaultContainerExecutor: delete returned false for path: [/tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0001/filecache/11_tmp]
+18/04/16 10:34:44 INFO monitor.ContainersMonitorImpl: Stopping resource-monitoring for container_1523874606393_0001_01_000001
+18/04/16 10:34:44 INFO nodemanager.NodeStatusUpdaterImpl: Removed completed containers from NM context: [container_1523874606393_0001_01_000001]
+18/04/16 10:34:44 INFO ipc.Server: Auth successful for appattempt_1523874606393_0001_000002 (auth:SIMPLE)
+18/04/16 10:34:44 INFO containermanager.ContainerManagerImpl: Start request for container_1523874606393_0001_02_000001 by user root
+18/04/16 10:34:44 INFO nodemanager.NMAuditLogger: USER=root	IP=10.32.0.7	OPERATION=Start Container Request	TARGET=ContainerManageImpl	RESULT=SUCCESS	APPID=application_1523874606393_0001	CONTAINERID=container_1523874606393_0001_02_000001
+18/04/16 10:34:44 INFO application.ApplicationImpl: Adding container_1523874606393_0001_02_000001 to application application_1523874606393_0001
+18/04/16 10:34:44 INFO container.ContainerImpl: Container container_1523874606393_0001_02_000001 transitioned from NEW to LOCALIZING
+18/04/16 10:34:44 INFO containermanager.AuxServices: Got event CONTAINER_INIT for appId application_1523874606393_0001
+18/04/16 10:34:44 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0001/job.splitmetainfo transitioned from INIT to DOWNLOADING
+18/04/16 10:34:44 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0001/job.jar transitioned from INIT to DOWNLOADING
+18/04/16 10:34:44 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0001/job.split transitioned from INIT to DOWNLOADING
+18/04/16 10:34:44 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0001/job.xml transitioned from INIT to DOWNLOADING
+18/04/16 10:34:44 INFO localizer.ResourceLocalizationService: Created localizer for container_1523874606393_0001_02_000001
+18/04/16 10:34:44 INFO localizer.ResourceLocalizationService: Writing credentials to the nmPrivate file /tmp/hadoop-root/nm-local-dir/nmPrivate/container_1523874606393_0001_02_000001.tokens. Credentials list: 
+18/04/16 10:34:44 INFO nodemanager.DefaultContainerExecutor: Initializing user root
+18/04/16 10:34:44 INFO nodemanager.DefaultContainerExecutor: Copying from /tmp/hadoop-root/nm-local-dir/nmPrivate/container_1523874606393_0001_02_000001.tokens to /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0001/container_1523874606393_0001_02_000001.tokens
+18/04/16 10:34:44 INFO nodemanager.DefaultContainerExecutor: Localizer CWD set to /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0001 = file:/tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0001
+18/04/16 10:34:44 WARN localizer.ResourceLocalizationService: { hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0001/job.splitmetainfo, 1523874881457, FILE, null } failed: 
+java.nio.channels.UnresolvedAddressException
+	at sun.nio.ch.Net.checkAddress(Net.java:101)
+	at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:622)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:192)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:531)
+	at org.apache.hadoop.hdfs.DFSClient.newConnectedPeer(DFSClient.java:3450)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.nextTcpPeer(BlockReaderFactory.java:777)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.getRemoteBlockReaderFromTcp(BlockReaderFactory.java:694)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.build(BlockReaderFactory.java:355)
+	at org.apache.hadoop.hdfs.DFSInputStream.blockSeekTo(DFSInputStream.java:665)
+	at org.apache.hadoop.hdfs.DFSInputStream.readWithStrategy(DFSInputStream.java:874)
+	at org.apache.hadoop.hdfs.DFSInputStream.read(DFSInputStream.java:926)
+	at java.io.DataInputStream.read(DataInputStream.java:100)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:86)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:60)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:120)
+	at org.apache.hadoop.fs.FileUtil.copy(FileUtil.java:366)
+	at org.apache.hadoop.yarn.util.FSDownload.copy(FSDownload.java:267)
+	at org.apache.hadoop.yarn.util.FSDownload.access$000(FSDownload.java:63)
+	at org.apache.hadoop.yarn.util.FSDownload$2.run(FSDownload.java:361)
+	at org.apache.hadoop.yarn.util.FSDownload$2.run(FSDownload.java:359)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1754)
+	at org.apache.hadoop.yarn.util.FSDownload.call(FSDownload.java:359)
+	at org.apache.hadoop.yarn.util.FSDownload.call(FSDownload.java:62)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+18/04/16 10:34:44 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0001/job.splitmetainfo(->/tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0001/filecache/12/job.splitmetainfo) transitioned from DOWNLOADING to FAILED
+18/04/16 10:34:44 INFO container.ContainerImpl: Container container_1523874606393_0001_02_000001 transitioned from LOCALIZING to LOCALIZATION_FAILED
+18/04/16 10:34:44 INFO localizer.LocalResourcesTrackerImpl: Container container_1523874606393_0001_02_000001 sent RELEASE event on a resource request { hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0001/job.splitmetainfo, 1523874881457, FILE, null } not present in cache.
+18/04/16 10:34:44 INFO localizer.ResourceLocalizationService: Unknown localizer with localizerId container_1523874606393_0001_02_000001 is sending heartbeat. Ordering it to DIE
+18/04/16 10:34:44 WARN nodemanager.NMAuditLogger: USER=root	OPERATION=Container Finished - Failed	TARGET=ContainerImpl	RESULT=FAILURE	DESCRIPTION=Container failed with state: LOCALIZATION_FAILED	APPID=application_1523874606393_0001	CONTAINERID=container_1523874606393_0001_02_000001
+18/04/16 10:34:44 WARN ipc.Client: interrupted waiting to send rpc request to server
+java.lang.InterruptedException
+	at java.util.concurrent.FutureTask.awaitDone(FutureTask.java:404)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at org.apache.hadoop.ipc.Client$Connection.sendRpcRequest(Client.java:1060)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1455)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1413)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:229)
+	at com.sun.proxy.$Proxy79.heartbeat(Unknown Source)
+	at org.apache.hadoop.yarn.server.nodemanager.api.impl.pb.client.LocalizationProtocolPBClientImpl.heartbeat(LocalizationProtocolPBClientImpl.java:63)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.localizeFiles(ContainerLocalizer.java:255)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.runLocalization(ContainerLocalizer.java:169)
+	at org.apache.hadoop.yarn.server.nodemanager.DefaultContainerExecutor.startLocalizer(DefaultContainerExecutor.java:130)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ResourceLocalizationService$LocalizerRunner.run(ResourceLocalizationService.java:1117)
+18/04/16 10:34:44 INFO container.ContainerImpl: Container container_1523874606393_0001_02_000001 transitioned from LOCALIZATION_FAILED to DONE
+java.io.IOException: java.lang.InterruptedException
+	at org.apache.hadoop.ipc.Client.call(Client.java:1461)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1413)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:229)
+	at com.sun.proxy.$Proxy79.heartbeat(Unknown Source)
+	at org.apache.hadoop.yarn.server.nodemanager.api.impl.pb.client.LocalizationProtocolPBClientImpl.heartbeat(LocalizationProtocolPBClientImpl.java:63)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.localizeFiles(ContainerLocalizer.java:255)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.runLocalization(ContainerLocalizer.java:169)
+18/04/16 10:34:44 INFO application.ApplicationImpl: Removing container_1523874606393_0001_02_000001 from application application_1523874606393_0001
+	at org.apache.hadoop.yarn.server.nodemanager.DefaultContainerExecutor.startLocalizer(DefaultContainerExecutor.java:130)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ResourceLocalizationService$LocalizerRunner.run(ResourceLocalizationService.java:1117)
+Caused by: java.lang.InterruptedException
+	at java.util.concurrent.FutureTask.awaitDone(FutureTask.java:404)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at org.apache.hadoop.ipc.Client$Connection.sendRpcRequest(Client.java:1060)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1455)
+18/04/16 10:34:44 INFO logaggregation.AppLogAggregatorImpl: Considering container container_1523874606393_0001_02_000001 for log-aggregation
+18/04/16 10:34:44 INFO containermanager.AuxServices: Got event CONTAINER_STOP for appId application_1523874606393_0001
+	... 8 more
+18/04/16 10:34:45 INFO nodemanager.NodeStatusUpdaterImpl: Removed completed containers from NM context: [container_1523874606393_0001_02_000001]
+18/04/16 10:34:45 INFO application.ApplicationImpl: Application application_1523874606393_0001 transitioned from RUNNING to APPLICATION_RESOURCES_CLEANINGUP
+18/04/16 10:34:45 INFO nodemanager.DefaultContainerExecutor: Deleting absolute path : /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0001
+18/04/16 10:34:45 INFO containermanager.AuxServices: Got event APPLICATION_STOP for appId application_1523874606393_0001
+18/04/16 10:34:45 INFO application.ApplicationImpl: Application application_1523874606393_0001 transitioned from APPLICATION_RESOURCES_CLEANINGUP to FINISHED
+18/04/16 10:34:45 INFO logaggregation.AppLogAggregatorImpl: Application just finished : application_1523874606393_0001
+18/04/16 10:34:45 INFO logaggregation.AppLogAggregatorImpl: Uploading logs for container container_1523874606393_0001_02_000001. Current good log dirs are /opt/hadoop-2.7.5/logs/userlogs
+18/04/16 10:34:45 INFO logaggregation.AppLogAggregatorImpl: Uploading logs for container container_1523874606393_0001_01_000001. Current good log dirs are /opt/hadoop-2.7.5/logs/userlogs
+18/04/16 10:34:45 WARN hdfs.DFSClient: DataStreamer Exception
+java.nio.channels.UnresolvedAddressException
+	at sun.nio.ch.Net.checkAddress(Net.java:101)
+	at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:622)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:192)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:531)
+	at org.apache.hadoop.hdfs.DFSOutputStream.createSocketForPipeline(DFSOutputStream.java:1702)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.createBlockOutputStream(DFSOutputStream.java:1432)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.nextBlockOutputStream(DFSOutputStream.java:1385)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.run(DFSOutputStream.java:554)
+18/04/16 10:34:45 INFO nodemanager.DefaultContainerExecutor: Deleting path : /opt/hadoop-2.7.5/logs/userlogs/application_1523874606393_0001
+18/04/16 10:34:47 INFO monitor.ContainersMonitorImpl: Stopping resource-monitoring for container_1523874606393_0001_02_000001
+18/04/16 10:39:03 INFO ipc.Server: Auth successful for appattempt_1523874606393_0002_000001 (auth:SIMPLE)
+18/04/16 10:39:03 INFO containermanager.ContainerManagerImpl: Start request for container_1523874606393_0002_01_000001 by user root
+18/04/16 10:39:03 INFO containermanager.ContainerManagerImpl: Creating a new application reference for app application_1523874606393_0002
+18/04/16 10:39:03 INFO nodemanager.NMAuditLogger: USER=root	IP=10.32.0.7	OPERATION=Start Container Request	TARGET=ContainerManageImpl	RESULT=SUCCESS	APPID=application_1523874606393_0002	CONTAINERID=container_1523874606393_0002_01_000001
+18/04/16 10:39:03 INFO application.ApplicationImpl: Application application_1523874606393_0002 transitioned from NEW to INITING
+18/04/16 10:39:03 INFO application.ApplicationImpl: Adding container_1523874606393_0002_01_000001 to application application_1523874606393_0002
+18/04/16 10:39:03 WARN logaggregation.LogAggregationService: Remote Root Log Dir [/tmp/logs] does not exist. Attempting to create it.
+18/04/16 10:39:03 WARN logaggregation.AppLogAggregatorImpl: rollingMonitorInterval is set as -1. The log rolling mornitoring interval is disabled. The logs will be aggregated after this application is finished.
+18/04/16 10:39:03 INFO application.ApplicationImpl: Application application_1523874606393_0002 transitioned from INITING to RUNNING
+18/04/16 10:39:03 INFO container.ContainerImpl: Container container_1523874606393_0002_01_000001 transitioned from NEW to LOCALIZING
+18/04/16 10:39:03 INFO containermanager.AuxServices: Got event CONTAINER_INIT for appId application_1523874606393_0002
+18/04/16 10:39:03 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0002/job.splitmetainfo transitioned from INIT to DOWNLOADING
+18/04/16 10:39:03 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0002/job.jar transitioned from INIT to DOWNLOADING
+18/04/16 10:39:03 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0002/job.split transitioned from INIT to DOWNLOADING
+18/04/16 10:39:03 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0002/job.xml transitioned from INIT to DOWNLOADING
+18/04/16 10:39:03 INFO localizer.ResourceLocalizationService: Created localizer for container_1523874606393_0002_01_000001
+18/04/16 10:39:03 INFO localizer.ResourceLocalizationService: Writing credentials to the nmPrivate file /tmp/hadoop-root/nm-local-dir/nmPrivate/container_1523874606393_0002_01_000001.tokens. Credentials list: 
+18/04/16 10:39:03 INFO nodemanager.DefaultContainerExecutor: Initializing user root
+18/04/16 10:39:03 INFO nodemanager.DefaultContainerExecutor: Copying from /tmp/hadoop-root/nm-local-dir/nmPrivate/container_1523874606393_0002_01_000001.tokens to /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0002/container_1523874606393_0002_01_000001.tokens
+18/04/16 10:39:03 INFO nodemanager.DefaultContainerExecutor: Localizer CWD set to /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0002 = file:/tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0002
+18/04/16 10:39:03 WARN localizer.ResourceLocalizationService: { hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0002/job.splitmetainfo, 1523875142017, FILE, null } failed: 
+java.nio.channels.UnresolvedAddressException
+	at sun.nio.ch.Net.checkAddress(Net.java:101)
+	at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:622)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:192)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:531)
+	at org.apache.hadoop.hdfs.DFSClient.newConnectedPeer(DFSClient.java:3450)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.nextTcpPeer(BlockReaderFactory.java:777)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.getRemoteBlockReaderFromTcp(BlockReaderFactory.java:694)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.build(BlockReaderFactory.java:355)
+	at org.apache.hadoop.hdfs.DFSInputStream.blockSeekTo(DFSInputStream.java:665)
+	at org.apache.hadoop.hdfs.DFSInputStream.readWithStrategy(DFSInputStream.java:874)
+	at org.apache.hadoop.hdfs.DFSInputStream.read(DFSInputStream.java:926)
+	at java.io.DataInputStream.read(DataInputStream.java:100)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:86)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:60)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:120)
+	at org.apache.hadoop.fs.FileUtil.copy(FileUtil.java:366)
+	at org.apache.hadoop.yarn.util.FSDownload.copy(FSDownload.java:267)
+	at org.apache.hadoop.yarn.util.FSDownload.access$000(FSDownload.java:63)
+	at org.apache.hadoop.yarn.util.FSDownload$2.run(FSDownload.java:361)
+	at org.apache.hadoop.yarn.util.FSDownload$2.run(FSDownload.java:359)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1754)
+	at org.apache.hadoop.yarn.util.FSDownload.call(FSDownload.java:359)
+	at org.apache.hadoop.yarn.util.FSDownload.call(FSDownload.java:62)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+18/04/16 10:39:03 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0002/job.splitmetainfo(->/tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0002/filecache/10/job.splitmetainfo) transitioned from DOWNLOADING to FAILED
+18/04/16 10:39:03 INFO container.ContainerImpl: Container container_1523874606393_0002_01_000001 transitioned from LOCALIZING to LOCALIZATION_FAILED
+18/04/16 10:39:03 INFO localizer.LocalResourcesTrackerImpl: Container container_1523874606393_0002_01_000001 sent RELEASE event on a resource request { hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0002/job.splitmetainfo, 1523875142017, FILE, null } not present in cache.
+18/04/16 10:39:03 WARN ipc.Client: interrupted waiting to send rpc request to server
+java.lang.InterruptedException
+	at java.util.concurrent.FutureTask.awaitDone(FutureTask.java:404)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at org.apache.hadoop.ipc.Client$Connection.sendRpcRequest(Client.java:1060)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1455)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1413)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:229)
+	at com.sun.proxy.$Proxy79.heartbeat(Unknown Source)
+	at org.apache.hadoop.yarn.server.nodemanager.api.impl.pb.client.LocalizationProtocolPBClientImpl.heartbeat(LocalizationProtocolPBClientImpl.java:63)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.localizeFiles(ContainerLocalizer.java:255)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.runLocalization(ContainerLocalizer.java:169)
+	at org.apache.hadoop.yarn.server.nodemanager.DefaultContainerExecutor.startLocalizer(DefaultContainerExecutor.java:130)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ResourceLocalizationService$LocalizerRunner.run(ResourceLocalizationService.java:1117)
+18/04/16 10:39:03 INFO localizer.ResourceLocalizationService: Unknown localizer with localizerId container_1523874606393_0002_01_000001 is sending heartbeat. Ordering it to DIE
+java.io.IOException: java.lang.InterruptedException
+18/04/16 10:39:03 WARN nodemanager.NMAuditLogger: USER=root	OPERATION=Container Finished - Failed	TARGET=ContainerImpl	RESULT=FAILURE	DESCRIPTION=Container failed with state: LOCALIZATION_FAILED	APPID=application_1523874606393_0002	CONTAINERID=container_1523874606393_0002_01_000001
+18/04/16 10:39:03 INFO container.ContainerImpl: Container container_1523874606393_0002_01_000001 transitioned from LOCALIZATION_FAILED to DONE
+	at org.apache.hadoop.ipc.Client.call(Client.java:1461)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1413)
+18/04/16 10:39:03 INFO application.ApplicationImpl: Removing container_1523874606393_0002_01_000001 from application application_1523874606393_0002
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:229)
+	at com.sun.proxy.$Proxy79.heartbeat(Unknown Source)
+	at org.apache.hadoop.yarn.server.nodemanager.api.impl.pb.client.LocalizationProtocolPBClientImpl.heartbeat(LocalizationProtocolPBClientImpl.java:63)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.localizeFiles(ContainerLocalizer.java:255)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.runLocalization(ContainerLocalizer.java:169)
+	at org.apache.hadoop.yarn.server.nodemanager.DefaultContainerExecutor.startLocalizer(DefaultContainerExecutor.java:130)
+18/04/16 10:39:03 INFO logaggregation.AppLogAggregatorImpl: Considering container container_1523874606393_0002_01_000001 for log-aggregation
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ResourceLocalizationService$LocalizerRunner.run(ResourceLocalizationService.java:1117)
+Caused by: java.lang.InterruptedException
+	at java.util.concurrent.FutureTask.awaitDone(FutureTask.java:404)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:191)
+18/04/16 10:39:03 INFO containermanager.AuxServices: Got event CONTAINER_STOP for appId application_1523874606393_0002
+	at org.apache.hadoop.ipc.Client$Connection.sendRpcRequest(Client.java:1060)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1455)
+	... 8 more
+18/04/16 10:39:04 INFO nodemanager.NodeStatusUpdaterImpl: Removed completed containers from NM context: [container_1523874606393_0002_01_000001]
+18/04/16 10:39:04 INFO ipc.Server: Auth successful for appattempt_1523874606393_0002_000002 (auth:SIMPLE)
+18/04/16 10:39:04 INFO containermanager.ContainerManagerImpl: Start request for container_1523874606393_0002_02_000001 by user root
+18/04/16 10:39:04 INFO nodemanager.NMAuditLogger: USER=root	IP=10.32.0.7	OPERATION=Start Container Request	TARGET=ContainerManageImpl	RESULT=SUCCESS	APPID=application_1523874606393_0002	CONTAINERID=container_1523874606393_0002_02_000001
+18/04/16 10:39:04 INFO application.ApplicationImpl: Adding container_1523874606393_0002_02_000001 to application application_1523874606393_0002
+18/04/16 10:39:04 INFO container.ContainerImpl: Container container_1523874606393_0002_02_000001 transitioned from NEW to LOCALIZING
+18/04/16 10:39:04 INFO containermanager.AuxServices: Got event CONTAINER_INIT for appId application_1523874606393_0002
+18/04/16 10:39:04 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0002/job.splitmetainfo transitioned from INIT to DOWNLOADING
+18/04/16 10:39:04 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0002/job.jar transitioned from INIT to DOWNLOADING
+18/04/16 10:39:04 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0002/job.split transitioned from INIT to DOWNLOADING
+18/04/16 10:39:04 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0002/job.xml transitioned from INIT to DOWNLOADING
+18/04/16 10:39:04 INFO localizer.ResourceLocalizationService: Created localizer for container_1523874606393_0002_02_000001
+18/04/16 10:39:04 INFO localizer.ResourceLocalizationService: Writing credentials to the nmPrivate file /tmp/hadoop-root/nm-local-dir/nmPrivate/container_1523874606393_0002_02_000001.tokens. Credentials list: 
+18/04/16 10:39:04 INFO nodemanager.DefaultContainerExecutor: Initializing user root
+18/04/16 10:39:04 INFO nodemanager.DefaultContainerExecutor: Copying from /tmp/hadoop-root/nm-local-dir/nmPrivate/container_1523874606393_0002_02_000001.tokens to /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0002/container_1523874606393_0002_02_000001.tokens
+18/04/16 10:39:04 INFO nodemanager.DefaultContainerExecutor: Localizer CWD set to /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0002 = file:/tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0002
+18/04/16 10:39:04 WARN localizer.ResourceLocalizationService: { hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0002/job.splitmetainfo, 1523875142017, FILE, null } failed: 
+java.nio.channels.UnresolvedAddressException
+	at sun.nio.ch.Net.checkAddress(Net.java:101)
+	at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:622)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:192)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:531)
+	at org.apache.hadoop.hdfs.DFSClient.newConnectedPeer(DFSClient.java:3450)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.nextTcpPeer(BlockReaderFactory.java:777)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.getRemoteBlockReaderFromTcp(BlockReaderFactory.java:694)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.build(BlockReaderFactory.java:355)
+	at org.apache.hadoop.hdfs.DFSInputStream.blockSeekTo(DFSInputStream.java:665)
+	at org.apache.hadoop.hdfs.DFSInputStream.readWithStrategy(DFSInputStream.java:874)
+	at org.apache.hadoop.hdfs.DFSInputStream.read(DFSInputStream.java:926)
+	at java.io.DataInputStream.read(DataInputStream.java:100)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:86)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:60)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:120)
+	at org.apache.hadoop.fs.FileUtil.copy(FileUtil.java:366)
+	at org.apache.hadoop.yarn.util.FSDownload.copy(FSDownload.java:267)
+	at org.apache.hadoop.yarn.util.FSDownload.access$000(FSDownload.java:63)
+	at org.apache.hadoop.yarn.util.FSDownload$2.run(FSDownload.java:361)
+	at org.apache.hadoop.yarn.util.FSDownload$2.run(FSDownload.java:359)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1754)
+	at org.apache.hadoop.yarn.util.FSDownload.call(FSDownload.java:359)
+	at org.apache.hadoop.yarn.util.FSDownload.call(FSDownload.java:62)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+18/04/16 10:39:04 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0002/job.splitmetainfo(->/tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0002/filecache/11/job.splitmetainfo) transitioned from DOWNLOADING to FAILED
+18/04/16 10:39:04 INFO container.ContainerImpl: Container container_1523874606393_0002_02_000001 transitioned from LOCALIZING to LOCALIZATION_FAILED
+18/04/16 10:39:04 INFO localizer.LocalResourcesTrackerImpl: Container container_1523874606393_0002_02_000001 sent RELEASE event on a resource request { hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0002/job.splitmetainfo, 1523875142017, FILE, null } not present in cache.
+18/04/16 10:39:04 WARN ipc.Client: interrupted waiting to send rpc request to server
+java.lang.InterruptedException
+	at java.util.concurrent.FutureTask.awaitDone(FutureTask.java:404)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at org.apache.hadoop.ipc.Client$Connection.sendRpcRequest(Client.java:1060)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1455)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1413)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:229)
+	at com.sun.proxy.$Proxy79.heartbeat(Unknown Source)
+	at org.apache.hadoop.yarn.server.nodemanager.api.impl.pb.client.LocalizationProtocolPBClientImpl.heartbeat(LocalizationProtocolPBClientImpl.java:63)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.localizeFiles(ContainerLocalizer.java:255)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.runLocalization(ContainerLocalizer.java:169)
+	at org.apache.hadoop.yarn.server.nodemanager.DefaultContainerExecutor.startLocalizer(DefaultContainerExecutor.java:130)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ResourceLocalizationService$LocalizerRunner.run(ResourceLocalizationService.java:1117)
+18/04/16 10:39:04 WARN nodemanager.NMAuditLogger: USER=root	OPERATION=Container Finished - Failed	TARGET=ContainerImpl	RESULT=FAILURE	DESCRIPTION=Container failed with state: LOCALIZATION_FAILED	APPID=application_1523874606393_0002	CONTAINERID=container_1523874606393_0002_02_000001
+java.io.IOException: java.lang.InterruptedException
+	at org.apache.hadoop.ipc.Client.call(Client.java:1461)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1413)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:229)
+	at com.sun.proxy.$Proxy79.heartbeat(Unknown Source)
+	at org.apache.hadoop.yarn.server.nodemanager.api.impl.pb.client.LocalizationProtocolPBClientImpl.heartbeat(LocalizationProtocolPBClientImpl.java:63)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.localizeFiles(ContainerLocalizer.java:255)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.runLocalization(ContainerLocalizer.java:169)
+18/04/16 10:39:04 INFO container.ContainerImpl: Container container_1523874606393_0002_02_000001 transitioned from LOCALIZATION_FAILED to DONE
+18/04/16 10:39:04 INFO application.ApplicationImpl: Removing container_1523874606393_0002_02_000001 from application application_1523874606393_0002
+	at org.apache.hadoop.yarn.server.nodemanager.DefaultContainerExecutor.startLocalizer(DefaultContainerExecutor.java:130)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ResourceLocalizationService$LocalizerRunner.run(ResourceLocalizationService.java:1117)
+18/04/16 10:39:04 INFO localizer.ResourceLocalizationService: Unknown localizer with localizerId container_1523874606393_0002_02_000001 is sending heartbeat. Ordering it to DIE
+Caused by: java.lang.InterruptedException
+	at java.util.concurrent.FutureTask.awaitDone(FutureTask.java:404)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at org.apache.hadoop.ipc.Client$Connection.sendRpcRequest(Client.java:1060)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1455)
+	... 8 more
+18/04/16 10:39:04 INFO logaggregation.AppLogAggregatorImpl: Considering container container_1523874606393_0002_02_000001 for log-aggregation
+18/04/16 10:39:04 INFO containermanager.AuxServices: Got event CONTAINER_STOP for appId application_1523874606393_0002
+18/04/16 10:39:05 INFO monitor.ContainersMonitorImpl: Stopping resource-monitoring for container_1523874606393_0002_01_000001
+18/04/16 10:39:05 INFO monitor.ContainersMonitorImpl: Stopping resource-monitoring for container_1523874606393_0002_02_000001
+18/04/16 10:39:05 INFO nodemanager.NodeStatusUpdaterImpl: Removed completed containers from NM context: [container_1523874606393_0002_02_000001]
+18/04/16 10:39:05 INFO application.ApplicationImpl: Application application_1523874606393_0002 transitioned from RUNNING to APPLICATION_RESOURCES_CLEANINGUP
+18/04/16 10:39:05 INFO containermanager.AuxServices: Got event APPLICATION_STOP for appId application_1523874606393_0002
+18/04/16 10:39:05 INFO nodemanager.DefaultContainerExecutor: Deleting absolute path : /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0002
+18/04/16 10:39:05 INFO application.ApplicationImpl: Application application_1523874606393_0002 transitioned from APPLICATION_RESOURCES_CLEANINGUP to FINISHED
+18/04/16 10:39:05 INFO logaggregation.AppLogAggregatorImpl: Application just finished : application_1523874606393_0002
+18/04/16 10:39:05 INFO logaggregation.AppLogAggregatorImpl: Uploading logs for container container_1523874606393_0002_02_000001. Current good log dirs are /opt/hadoop-2.7.5/logs/userlogs
+18/04/16 10:39:05 INFO logaggregation.AppLogAggregatorImpl: Uploading logs for container container_1523874606393_0002_01_000001. Current good log dirs are /opt/hadoop-2.7.5/logs/userlogs
+18/04/16 10:39:05 WARN hdfs.DFSClient: DataStreamer Exception
+java.nio.channels.UnresolvedAddressException
+	at sun.nio.ch.Net.checkAddress(Net.java:101)
+	at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:622)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:192)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:531)
+	at org.apache.hadoop.hdfs.DFSOutputStream.createSocketForPipeline(DFSOutputStream.java:1702)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.createBlockOutputStream(DFSOutputStream.java:1432)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.nextBlockOutputStream(DFSOutputStream.java:1385)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.run(DFSOutputStream.java:554)
+18/04/16 10:39:05 INFO nodemanager.DefaultContainerExecutor: Deleting path : /opt/hadoop-2.7.5/logs/userlogs/application_1523874606393_0002
+18/04/16 10:43:43 INFO ipc.Server: Auth successful for appattempt_1523874606393_0003_000001 (auth:SIMPLE)
+18/04/16 10:43:43 INFO containermanager.ContainerManagerImpl: Start request for container_1523874606393_0003_01_000001 by user root
+18/04/16 10:43:43 INFO containermanager.ContainerManagerImpl: Creating a new application reference for app application_1523874606393_0003
+18/04/16 10:43:43 INFO nodemanager.NMAuditLogger: USER=root	IP=10.32.0.7	OPERATION=Start Container Request	TARGET=ContainerManageImpl	RESULT=SUCCESS	APPID=application_1523874606393_0003	CONTAINERID=container_1523874606393_0003_01_000001
+18/04/16 10:43:43 INFO application.ApplicationImpl: Application application_1523874606393_0003 transitioned from NEW to INITING
+18/04/16 10:43:43 INFO application.ApplicationImpl: Adding container_1523874606393_0003_01_000001 to application application_1523874606393_0003
+18/04/16 10:43:43 WARN logaggregation.AppLogAggregatorImpl: rollingMonitorInterval is set as -1. The log rolling mornitoring interval is disabled. The logs will be aggregated after this application is finished.
+18/04/16 10:43:43 INFO application.ApplicationImpl: Application application_1523874606393_0003 transitioned from INITING to RUNNING
+18/04/16 10:43:43 INFO container.ContainerImpl: Container container_1523874606393_0003_01_000001 transitioned from NEW to LOCALIZING
+18/04/16 10:43:43 INFO containermanager.AuxServices: Got event CONTAINER_INIT for appId application_1523874606393_0003
+18/04/16 10:43:43 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0003/job.splitmetainfo transitioned from INIT to DOWNLOADING
+18/04/16 10:43:43 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0003/job.jar transitioned from INIT to DOWNLOADING
+18/04/16 10:43:43 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0003/job.split transitioned from INIT to DOWNLOADING
+18/04/16 10:43:43 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0003/job.xml transitioned from INIT to DOWNLOADING
+18/04/16 10:43:43 INFO localizer.ResourceLocalizationService: Created localizer for container_1523874606393_0003_01_000001
+18/04/16 10:43:43 INFO localizer.ResourceLocalizationService: Writing credentials to the nmPrivate file /tmp/hadoop-root/nm-local-dir/nmPrivate/container_1523874606393_0003_01_000001.tokens. Credentials list: 
+18/04/16 10:43:43 INFO nodemanager.DefaultContainerExecutor: Initializing user root
+18/04/16 10:43:43 INFO nodemanager.DefaultContainerExecutor: Copying from /tmp/hadoop-root/nm-local-dir/nmPrivate/container_1523874606393_0003_01_000001.tokens to /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0003/container_1523874606393_0003_01_000001.tokens
+18/04/16 10:43:43 INFO nodemanager.DefaultContainerExecutor: Localizer CWD set to /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0003 = file:/tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0003
+18/04/16 10:43:43 WARN localizer.ResourceLocalizationService: { hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0003/job.splitmetainfo, 1523875422999, FILE, null } failed: 
+java.nio.channels.UnresolvedAddressException
+	at sun.nio.ch.Net.checkAddress(Net.java:101)
+	at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:622)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:192)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:531)
+	at org.apache.hadoop.hdfs.DFSClient.newConnectedPeer(DFSClient.java:3450)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.nextTcpPeer(BlockReaderFactory.java:777)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.getRemoteBlockReaderFromTcp(BlockReaderFactory.java:694)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.build(BlockReaderFactory.java:355)
+	at org.apache.hadoop.hdfs.DFSInputStream.blockSeekTo(DFSInputStream.java:665)
+	at org.apache.hadoop.hdfs.DFSInputStream.readWithStrategy(DFSInputStream.java:874)
+	at org.apache.hadoop.hdfs.DFSInputStream.read(DFSInputStream.java:926)
+	at java.io.DataInputStream.read(DataInputStream.java:100)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:86)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:60)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:120)
+	at org.apache.hadoop.fs.FileUtil.copy(FileUtil.java:366)
+	at org.apache.hadoop.yarn.util.FSDownload.copy(FSDownload.java:267)
+	at org.apache.hadoop.yarn.util.FSDownload.access$000(FSDownload.java:63)
+	at org.apache.hadoop.yarn.util.FSDownload$2.run(FSDownload.java:361)
+	at org.apache.hadoop.yarn.util.FSDownload$2.run(FSDownload.java:359)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1754)
+	at org.apache.hadoop.yarn.util.FSDownload.call(FSDownload.java:359)
+	at org.apache.hadoop.yarn.util.FSDownload.call(FSDownload.java:62)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+18/04/16 10:43:43 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0003/job.splitmetainfo(->/tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0003/filecache/10/job.splitmetainfo) transitioned from DOWNLOADING to FAILED
+18/04/16 10:43:43 INFO container.ContainerImpl: Container container_1523874606393_0003_01_000001 transitioned from LOCALIZING to LOCALIZATION_FAILED
+18/04/16 10:43:43 INFO localizer.LocalResourcesTrackerImpl: Container container_1523874606393_0003_01_000001 sent RELEASE event on a resource request { hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0003/job.splitmetainfo, 1523875422999, FILE, null } not present in cache.
+18/04/16 10:43:43 WARN ipc.Client: interrupted waiting to send rpc request to server
+java.lang.InterruptedException
+java.io.IOException: java.lang.InterruptedException
+	at java.util.concurrent.FutureTask.awaitDone(FutureTask.java:404)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at org.apache.hadoop.ipc.Client$Connection.sendRpcRequest(Client.java:1060)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1455)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1413)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:229)
+	at com.sun.proxy.$Proxy79.heartbeat(Unknown Source)
+	at org.apache.hadoop.yarn.server.nodemanager.api.impl.pb.client.LocalizationProtocolPBClientImpl.heartbeat(LocalizationProtocolPBClientImpl.java:63)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.localizeFiles(ContainerLocalizer.java:255)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.runLocalization(ContainerLocalizer.java:169)
+	at org.apache.hadoop.yarn.server.nodemanager.DefaultContainerExecutor.startLocalizer(DefaultContainerExecutor.java:130)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ResourceLocalizationService$LocalizerRunner.run(ResourceLocalizationService.java:1117)
+18/04/16 10:43:43 INFO localizer.ResourceLocalizationService: Unknown localizer with localizerId container_1523874606393_0003_01_000001 is sending heartbeat. Ordering it to DIE
+18/04/16 10:43:43 WARN nodemanager.NMAuditLogger: USER=root	OPERATION=Container Finished - Failed	TARGET=ContainerImpl	RESULT=FAILURE	DESCRIPTION=Container failed with state: LOCALIZATION_FAILED	APPID=application_1523874606393_0003	CONTAINERID=container_1523874606393_0003_01_000001
+18/04/16 10:43:43 INFO container.ContainerImpl: Container container_1523874606393_0003_01_000001 transitioned from LOCALIZATION_FAILED to DONE
+	at org.apache.hadoop.ipc.Client.call(Client.java:1461)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1413)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:229)
+	at com.sun.proxy.$Proxy79.heartbeat(Unknown Source)
+	at org.apache.hadoop.yarn.server.nodemanager.api.impl.pb.client.LocalizationProtocolPBClientImpl.heartbeat(LocalizationProtocolPBClientImpl.java:63)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.localizeFiles(ContainerLocalizer.java:255)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.runLocalization(ContainerLocalizer.java:169)
+	at org.apache.hadoop.yarn.server.nodemanager.DefaultContainerExecutor.startLocalizer(DefaultContainerExecutor.java:130)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ResourceLocalizationService$LocalizerRunner.run(ResourceLocalizationService.java:1117)
+Caused by: java.lang.InterruptedException
+	at java.util.concurrent.FutureTask.awaitDone(FutureTask.java:404)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at org.apache.hadoop.ipc.Client$Connection.sendRpcRequest(Client.java:1060)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1455)
+	... 8 more
+18/04/16 10:43:43 INFO application.ApplicationImpl: Removing container_1523874606393_0003_01_000001 from application application_1523874606393_0003
+18/04/16 10:43:43 INFO logaggregation.AppLogAggregatorImpl: Considering container container_1523874606393_0003_01_000001 for log-aggregation
+18/04/16 10:43:43 INFO containermanager.AuxServices: Got event CONTAINER_STOP for appId application_1523874606393_0003
+18/04/16 10:43:44 INFO monitor.ContainersMonitorImpl: Stopping resource-monitoring for container_1523874606393_0003_01_000001
+18/04/16 10:43:44 INFO nodemanager.NodeStatusUpdaterImpl: Removed completed containers from NM context: [container_1523874606393_0003_01_000001]
+18/04/16 10:43:44 INFO ipc.Server: Auth successful for appattempt_1523874606393_0003_000002 (auth:SIMPLE)
+18/04/16 10:43:44 INFO containermanager.ContainerManagerImpl: Start request for container_1523874606393_0003_02_000001 by user root
+18/04/16 10:43:44 INFO nodemanager.NMAuditLogger: USER=root	IP=10.32.0.7	OPERATION=Start Container Request	TARGET=ContainerManageImpl	RESULT=SUCCESS	APPID=application_1523874606393_0003	CONTAINERID=container_1523874606393_0003_02_000001
+18/04/16 10:43:44 INFO application.ApplicationImpl: Adding container_1523874606393_0003_02_000001 to application application_1523874606393_0003
+18/04/16 10:43:44 INFO container.ContainerImpl: Container container_1523874606393_0003_02_000001 transitioned from NEW to LOCALIZING
+18/04/16 10:43:44 INFO containermanager.AuxServices: Got event CONTAINER_INIT for appId application_1523874606393_0003
+18/04/16 10:43:44 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0003/job.splitmetainfo transitioned from INIT to DOWNLOADING
+18/04/16 10:43:44 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0003/job.jar transitioned from INIT to DOWNLOADING
+18/04/16 10:43:44 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0003/job.split transitioned from INIT to DOWNLOADING
+18/04/16 10:43:44 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0003/job.xml transitioned from INIT to DOWNLOADING
+18/04/16 10:43:44 INFO localizer.ResourceLocalizationService: Created localizer for container_1523874606393_0003_02_000001
+18/04/16 10:43:44 INFO localizer.ResourceLocalizationService: Writing credentials to the nmPrivate file /tmp/hadoop-root/nm-local-dir/nmPrivate/container_1523874606393_0003_02_000001.tokens. Credentials list: 
+18/04/16 10:43:44 INFO nodemanager.DefaultContainerExecutor: Initializing user root
+18/04/16 10:43:44 INFO nodemanager.DefaultContainerExecutor: Copying from /tmp/hadoop-root/nm-local-dir/nmPrivate/container_1523874606393_0003_02_000001.tokens to /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0003/container_1523874606393_0003_02_000001.tokens
+18/04/16 10:43:44 INFO nodemanager.DefaultContainerExecutor: Localizer CWD set to /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0003 = file:/tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0003
+18/04/16 10:43:44 WARN localizer.ResourceLocalizationService: { hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0003/job.splitmetainfo, 1523875422999, FILE, null } failed: 
+java.nio.channels.UnresolvedAddressException
+	at sun.nio.ch.Net.checkAddress(Net.java:101)
+	at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:622)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:192)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:531)
+	at org.apache.hadoop.hdfs.DFSClient.newConnectedPeer(DFSClient.java:3450)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.nextTcpPeer(BlockReaderFactory.java:777)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.getRemoteBlockReaderFromTcp(BlockReaderFactory.java:694)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.build(BlockReaderFactory.java:355)
+	at org.apache.hadoop.hdfs.DFSInputStream.blockSeekTo(DFSInputStream.java:665)
+	at org.apache.hadoop.hdfs.DFSInputStream.readWithStrategy(DFSInputStream.java:874)
+	at org.apache.hadoop.hdfs.DFSInputStream.read(DFSInputStream.java:926)
+	at java.io.DataInputStream.read(DataInputStream.java:100)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:86)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:60)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:120)
+	at org.apache.hadoop.fs.FileUtil.copy(FileUtil.java:366)
+	at org.apache.hadoop.yarn.util.FSDownload.copy(FSDownload.java:267)
+	at org.apache.hadoop.yarn.util.FSDownload.access$000(FSDownload.java:63)
+	at org.apache.hadoop.yarn.util.FSDownload$2.run(FSDownload.java:361)
+	at org.apache.hadoop.yarn.util.FSDownload$2.run(FSDownload.java:359)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1754)
+	at org.apache.hadoop.yarn.util.FSDownload.call(FSDownload.java:359)
+	at org.apache.hadoop.yarn.util.FSDownload.call(FSDownload.java:62)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+18/04/16 10:43:44 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0003/job.splitmetainfo(->/tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0003/filecache/11/job.splitmetainfo) transitioned from DOWNLOADING to FAILED
+18/04/16 10:43:44 INFO container.ContainerImpl: Container container_1523874606393_0003_02_000001 transitioned from LOCALIZING to LOCALIZATION_FAILED
+18/04/16 10:43:44 INFO localizer.LocalResourcesTrackerImpl: Container container_1523874606393_0003_02_000001 sent RELEASE event on a resource request { hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0003/job.splitmetainfo, 1523875422999, FILE, null } not present in cache.
+18/04/16 10:43:44 INFO localizer.ResourceLocalizationService: Unknown localizer with localizerId container_1523874606393_0003_02_000001 is sending heartbeat. Ordering it to DIE
+java.io.InterruptedIOException: Call interrupted
+	at org.apache.hadoop.ipc.Client.call(Client.java:1470)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1413)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:229)
+	at com.sun.proxy.$Proxy79.heartbeat(Unknown Source)
+	at org.apache.hadoop.yarn.server.nodemanager.api.impl.pb.client.LocalizationProtocolPBClientImpl.heartbeat(LocalizationProtocolPBClientImpl.java:63)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.localizeFiles(ContainerLocalizer.java:255)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.runLocalization(ContainerLocalizer.java:169)
+	at org.apache.hadoop.yarn.server.nodemanager.DefaultContainerExecutor.startLocalizer(DefaultContainerExecutor.java:130)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ResourceLocalizationService$LocalizerRunner.run(ResourceLocalizationService.java:1117)
+18/04/16 10:43:44 WARN nodemanager.NMAuditLogger: USER=root	OPERATION=Container Finished - Failed	TARGET=ContainerImpl	RESULT=FAILURE	DESCRIPTION=Container failed with state: LOCALIZATION_FAILED	APPID=application_1523874606393_0003	CONTAINERID=container_1523874606393_0003_02_000001
+18/04/16 10:43:44 INFO container.ContainerImpl: Container container_1523874606393_0003_02_000001 transitioned from LOCALIZATION_FAILED to DONE
+18/04/16 10:43:44 INFO application.ApplicationImpl: Removing container_1523874606393_0003_02_000001 from application application_1523874606393_0003
+18/04/16 10:43:44 INFO logaggregation.AppLogAggregatorImpl: Considering container container_1523874606393_0003_02_000001 for log-aggregation
+18/04/16 10:43:44 INFO containermanager.AuxServices: Got event CONTAINER_STOP for appId application_1523874606393_0003
+18/04/16 10:43:45 INFO nodemanager.NodeStatusUpdaterImpl: Removed completed containers from NM context: [container_1523874606393_0003_02_000001]
+18/04/16 10:43:45 INFO application.ApplicationImpl: Application application_1523874606393_0003 transitioned from RUNNING to APPLICATION_RESOURCES_CLEANINGUP
+18/04/16 10:43:45 INFO nodemanager.DefaultContainerExecutor: Deleting absolute path : /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0003
+18/04/16 10:43:45 INFO containermanager.AuxServices: Got event APPLICATION_STOP for appId application_1523874606393_0003
+18/04/16 10:43:45 INFO application.ApplicationImpl: Application application_1523874606393_0003 transitioned from APPLICATION_RESOURCES_CLEANINGUP to FINISHED
+18/04/16 10:43:45 INFO logaggregation.AppLogAggregatorImpl: Application just finished : application_1523874606393_0003
+18/04/16 10:43:45 INFO logaggregation.AppLogAggregatorImpl: Uploading logs for container container_1523874606393_0003_01_000001. Current good log dirs are /opt/hadoop-2.7.5/logs/userlogs
+18/04/16 10:43:45 INFO logaggregation.AppLogAggregatorImpl: Uploading logs for container container_1523874606393_0003_02_000001. Current good log dirs are /opt/hadoop-2.7.5/logs/userlogs
+18/04/16 10:43:45 WARN hdfs.DFSClient: DataStreamer Exception
+java.nio.channels.UnresolvedAddressException
+	at sun.nio.ch.Net.checkAddress(Net.java:101)
+	at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:622)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:192)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:531)
+	at org.apache.hadoop.hdfs.DFSOutputStream.createSocketForPipeline(DFSOutputStream.java:1702)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.createBlockOutputStream(DFSOutputStream.java:1432)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.nextBlockOutputStream(DFSOutputStream.java:1385)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.run(DFSOutputStream.java:554)
+18/04/16 10:43:45 INFO nodemanager.DefaultContainerExecutor: Deleting path : /opt/hadoop-2.7.5/logs/userlogs/application_1523874606393_0003
+18/04/16 10:43:47 INFO monitor.ContainersMonitorImpl: Stopping resource-monitoring for container_1523874606393_0003_02_000001
+18/04/16 10:48:53 INFO ipc.Server: Auth successful for appattempt_1523874606393_0004_000001 (auth:SIMPLE)
+18/04/16 10:48:53 INFO containermanager.ContainerManagerImpl: Start request for container_1523874606393_0004_01_000001 by user root
+18/04/16 10:48:53 INFO containermanager.ContainerManagerImpl: Creating a new application reference for app application_1523874606393_0004
+18/04/16 10:48:53 INFO nodemanager.NMAuditLogger: USER=root	IP=10.32.0.7	OPERATION=Start Container Request	TARGET=ContainerManageImpl	RESULT=SUCCESS	APPID=application_1523874606393_0004	CONTAINERID=container_1523874606393_0004_01_000001
+18/04/16 10:48:53 INFO application.ApplicationImpl: Application application_1523874606393_0004 transitioned from NEW to INITING
+18/04/16 10:48:53 INFO application.ApplicationImpl: Adding container_1523874606393_0004_01_000001 to application application_1523874606393_0004
+18/04/16 10:48:53 WARN logaggregation.AppLogAggregatorImpl: rollingMonitorInterval is set as -1. The log rolling mornitoring interval is disabled. The logs will be aggregated after this application is finished.
+18/04/16 10:48:53 INFO application.ApplicationImpl: Application application_1523874606393_0004 transitioned from INITING to RUNNING
+18/04/16 10:48:53 INFO container.ContainerImpl: Container container_1523874606393_0004_01_000001 transitioned from NEW to LOCALIZING
+18/04/16 10:48:53 INFO containermanager.AuxServices: Got event CONTAINER_INIT for appId application_1523874606393_0004
+18/04/16 10:48:53 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0004/job.splitmetainfo transitioned from INIT to DOWNLOADING
+18/04/16 10:48:53 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0004/job.jar transitioned from INIT to DOWNLOADING
+18/04/16 10:48:53 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0004/job.split transitioned from INIT to DOWNLOADING
+18/04/16 10:48:53 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0004/job.xml transitioned from INIT to DOWNLOADING
+18/04/16 10:48:53 INFO localizer.ResourceLocalizationService: Created localizer for container_1523874606393_0004_01_000001
+18/04/16 10:48:53 INFO localizer.ResourceLocalizationService: Writing credentials to the nmPrivate file /tmp/hadoop-root/nm-local-dir/nmPrivate/container_1523874606393_0004_01_000001.tokens. Credentials list: 
+18/04/16 10:48:53 INFO nodemanager.DefaultContainerExecutor: Initializing user root
+18/04/16 10:48:53 INFO nodemanager.DefaultContainerExecutor: Copying from /tmp/hadoop-root/nm-local-dir/nmPrivate/container_1523874606393_0004_01_000001.tokens to /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0004/container_1523874606393_0004_01_000001.tokens
+18/04/16 10:48:53 INFO nodemanager.DefaultContainerExecutor: Localizer CWD set to /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0004 = file:/tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0004
+18/04/16 10:48:53 WARN localizer.ResourceLocalizationService: { hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0004/job.splitmetainfo, 1523875732737, FILE, null } failed: 
+java.nio.channels.UnresolvedAddressException
+	at sun.nio.ch.Net.checkAddress(Net.java:101)
+	at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:622)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:192)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:531)
+	at org.apache.hadoop.hdfs.DFSClient.newConnectedPeer(DFSClient.java:3450)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.nextTcpPeer(BlockReaderFactory.java:777)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.getRemoteBlockReaderFromTcp(BlockReaderFactory.java:694)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.build(BlockReaderFactory.java:355)
+	at org.apache.hadoop.hdfs.DFSInputStream.blockSeekTo(DFSInputStream.java:665)
+	at org.apache.hadoop.hdfs.DFSInputStream.readWithStrategy(DFSInputStream.java:874)
+	at org.apache.hadoop.hdfs.DFSInputStream.read(DFSInputStream.java:926)
+	at java.io.DataInputStream.read(DataInputStream.java:100)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:86)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:60)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:120)
+	at org.apache.hadoop.fs.FileUtil.copy(FileUtil.java:366)
+	at org.apache.hadoop.yarn.util.FSDownload.copy(FSDownload.java:267)
+	at org.apache.hadoop.yarn.util.FSDownload.access$000(FSDownload.java:63)
+	at org.apache.hadoop.yarn.util.FSDownload$2.run(FSDownload.java:361)
+	at org.apache.hadoop.yarn.util.FSDownload$2.run(FSDownload.java:359)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1754)
+	at org.apache.hadoop.yarn.util.FSDownload.call(FSDownload.java:359)
+	at org.apache.hadoop.yarn.util.FSDownload.call(FSDownload.java:62)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+18/04/16 10:48:53 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0004/job.splitmetainfo(->/tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0004/filecache/10/job.splitmetainfo) transitioned from DOWNLOADING to FAILED
+18/04/16 10:48:53 INFO container.ContainerImpl: Container container_1523874606393_0004_01_000001 transitioned from LOCALIZING to LOCALIZATION_FAILED
+18/04/16 10:48:53 INFO localizer.LocalResourcesTrackerImpl: Container container_1523874606393_0004_01_000001 sent RELEASE event on a resource request { hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0004/job.splitmetainfo, 1523875732737, FILE, null } not present in cache.
+18/04/16 10:48:53 WARN ipc.Client: interrupted waiting to send rpc request to server
+java.lang.InterruptedException
+	at java.util.concurrent.FutureTask.awaitDone(FutureTask.java:404)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at org.apache.hadoop.ipc.Client$Connection.sendRpcRequest(Client.java:1060)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1455)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1413)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:229)
+	at com.sun.proxy.$Proxy79.heartbeat(Unknown Source)
+	at org.apache.hadoop.yarn.server.nodemanager.api.impl.pb.client.LocalizationProtocolPBClientImpl.heartbeat(LocalizationProtocolPBClientImpl.java:63)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.localizeFiles(ContainerLocalizer.java:255)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.runLocalization(ContainerLocalizer.java:169)
+	at org.apache.hadoop.yarn.server.nodemanager.DefaultContainerExecutor.startLocalizer(DefaultContainerExecutor.java:130)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ResourceLocalizationService$LocalizerRunner.run(ResourceLocalizationService.java:1117)
+18/04/16 10:48:53 WARN nodemanager.NMAuditLogger: USER=root	OPERATION=Container Finished - Failed	TARGET=ContainerImpl	RESULT=FAILURE	DESCRIPTION=Container failed with state: LOCALIZATION_FAILED	APPID=application_1523874606393_0004	CONTAINERID=container_1523874606393_0004_01_000001
+18/04/16 10:48:53 INFO container.ContainerImpl: Container container_1523874606393_0004_01_000001 transitioned from LOCALIZATION_FAILED to DONE
+java.io.IOException: java.lang.InterruptedException
+	at org.apache.hadoop.ipc.Client.call(Client.java:1461)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1413)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:229)
+	at com.sun.proxy.$Proxy79.heartbeat(Unknown Source)
+	at org.apache.hadoop.yarn.server.nodemanager.api.impl.pb.client.LocalizationProtocolPBClientImpl.heartbeat(LocalizationProtocolPBClientImpl.java:63)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.localizeFiles(ContainerLocalizer.java:255)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.runLocalization(ContainerLocalizer.java:169)
+	at org.apache.hadoop.yarn.server.nodemanager.DefaultContainerExecutor.startLocalizer(DefaultContainerExecutor.java:130)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ResourceLocalizationService$LocalizerRunner.run(ResourceLocalizationService.java:1117)
+Caused by: java.lang.InterruptedException
+	at java.util.concurrent.FutureTask.awaitDone(FutureTask.java:404)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:191)
+18/04/16 10:48:53 INFO localizer.ResourceLocalizationService: Unknown localizer with localizerId container_1523874606393_0004_01_000001 is sending heartbeat. Ordering it to DIE
+18/04/16 10:48:53 INFO application.ApplicationImpl: Removing container_1523874606393_0004_01_000001 from application application_1523874606393_0004
+	at org.apache.hadoop.ipc.Client$Connection.sendRpcRequest(Client.java:1060)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1455)
+	... 8 more
+18/04/16 10:48:53 INFO logaggregation.AppLogAggregatorImpl: Considering container container_1523874606393_0004_01_000001 for log-aggregation
+18/04/16 10:48:53 INFO containermanager.AuxServices: Got event CONTAINER_STOP for appId application_1523874606393_0004
+18/04/16 10:48:54 INFO nodemanager.NodeStatusUpdaterImpl: Removed completed containers from NM context: [container_1523874606393_0004_01_000001]
+18/04/16 10:48:54 INFO ipc.Server: Auth successful for appattempt_1523874606393_0004_000002 (auth:SIMPLE)
+18/04/16 10:48:54 INFO containermanager.ContainerManagerImpl: Start request for container_1523874606393_0004_02_000001 by user root
+18/04/16 10:48:54 INFO nodemanager.NMAuditLogger: USER=root	IP=10.32.0.7	OPERATION=Start Container Request	TARGET=ContainerManageImpl	RESULT=SUCCESS	APPID=application_1523874606393_0004	CONTAINERID=container_1523874606393_0004_02_000001
+18/04/16 10:48:54 INFO application.ApplicationImpl: Adding container_1523874606393_0004_02_000001 to application application_1523874606393_0004
+18/04/16 10:48:54 INFO container.ContainerImpl: Container container_1523874606393_0004_02_000001 transitioned from NEW to LOCALIZING
+18/04/16 10:48:54 INFO containermanager.AuxServices: Got event CONTAINER_INIT for appId application_1523874606393_0004
+18/04/16 10:48:54 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0004/job.splitmetainfo transitioned from INIT to DOWNLOADING
+18/04/16 10:48:54 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0004/job.jar transitioned from INIT to DOWNLOADING
+18/04/16 10:48:54 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0004/job.split transitioned from INIT to DOWNLOADING
+18/04/16 10:48:54 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0004/job.xml transitioned from INIT to DOWNLOADING
+18/04/16 10:48:54 INFO localizer.ResourceLocalizationService: Created localizer for container_1523874606393_0004_02_000001
+18/04/16 10:48:54 INFO localizer.ResourceLocalizationService: Writing credentials to the nmPrivate file /tmp/hadoop-root/nm-local-dir/nmPrivate/container_1523874606393_0004_02_000001.tokens. Credentials list: 
+18/04/16 10:48:54 INFO nodemanager.DefaultContainerExecutor: Initializing user root
+18/04/16 10:48:54 INFO nodemanager.DefaultContainerExecutor: Copying from /tmp/hadoop-root/nm-local-dir/nmPrivate/container_1523874606393_0004_02_000001.tokens to /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0004/container_1523874606393_0004_02_000001.tokens
+18/04/16 10:48:54 INFO nodemanager.DefaultContainerExecutor: Localizer CWD set to /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0004 = file:/tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0004
+18/04/16 10:48:54 WARN localizer.ResourceLocalizationService: { hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0004/job.splitmetainfo, 1523875732737, FILE, null } failed: 
+java.nio.channels.UnresolvedAddressException
+	at sun.nio.ch.Net.checkAddress(Net.java:101)
+	at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:622)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:192)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:531)
+	at org.apache.hadoop.hdfs.DFSClient.newConnectedPeer(DFSClient.java:3450)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.nextTcpPeer(BlockReaderFactory.java:777)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.getRemoteBlockReaderFromTcp(BlockReaderFactory.java:694)
+	at org.apache.hadoop.hdfs.BlockReaderFactory.build(BlockReaderFactory.java:355)
+	at org.apache.hadoop.hdfs.DFSInputStream.blockSeekTo(DFSInputStream.java:665)
+	at org.apache.hadoop.hdfs.DFSInputStream.readWithStrategy(DFSInputStream.java:874)
+	at org.apache.hadoop.hdfs.DFSInputStream.read(DFSInputStream.java:926)
+	at java.io.DataInputStream.read(DataInputStream.java:100)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:86)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:60)
+	at org.apache.hadoop.io.IOUtils.copyBytes(IOUtils.java:120)
+	at org.apache.hadoop.fs.FileUtil.copy(FileUtil.java:366)
+	at org.apache.hadoop.yarn.util.FSDownload.copy(FSDownload.java:267)
+	at org.apache.hadoop.yarn.util.FSDownload.access$000(FSDownload.java:63)
+	at org.apache.hadoop.yarn.util.FSDownload$2.run(FSDownload.java:361)
+	at org.apache.hadoop.yarn.util.FSDownload$2.run(FSDownload.java:359)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1754)
+	at org.apache.hadoop.yarn.util.FSDownload.call(FSDownload.java:359)
+	at org.apache.hadoop.yarn.util.FSDownload.call(FSDownload.java:62)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+18/04/16 10:48:54 INFO localizer.LocalizedResource: Resource hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0004/job.splitmetainfo(->/tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0004/filecache/11/job.splitmetainfo) transitioned from DOWNLOADING to FAILED
+18/04/16 10:48:54 INFO container.ContainerImpl: Container container_1523874606393_0004_02_000001 transitioned from LOCALIZING to LOCALIZATION_FAILED
+18/04/16 10:48:54 INFO localizer.LocalResourcesTrackerImpl: Container container_1523874606393_0004_02_000001 sent RELEASE event on a resource request { hdfs://hdfs-namenode-0.hdfs-namenode.default.svc.cluster.local:8020/tmp/hadoop-yarn/staging/root/.staging/job_1523874606393_0004/job.splitmetainfo, 1523875732737, FILE, null } not present in cache.
+18/04/16 10:48:54 WARN nodemanager.NMAuditLogger: USER=root	OPERATION=Container Finished - Failed	TARGET=ContainerImpl	RESULT=FAILURE	DESCRIPTION=Container failed with state: LOCALIZATION_FAILED	APPID=application_1523874606393_0004	CONTAINERID=container_1523874606393_0004_02_000001
+18/04/16 10:48:54 INFO container.ContainerImpl: Container container_1523874606393_0004_02_000001 transitioned from LOCALIZATION_FAILED to DONE
+18/04/16 10:48:54 INFO application.ApplicationImpl: Removing container_1523874606393_0004_02_000001 from application application_1523874606393_0004
+18/04/16 10:48:54 WARN ipc.Client: interrupted waiting to send rpc request to server
+java.lang.InterruptedException
+	at java.util.concurrent.FutureTask.awaitDone(FutureTask.java:404)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at org.apache.hadoop.ipc.Client$Connection.sendRpcRequest(Client.java:1060)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1455)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1413)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:229)
+	at com.sun.proxy.$Proxy79.heartbeat(Unknown Source)
+	at org.apache.hadoop.yarn.server.nodemanager.api.impl.pb.client.LocalizationProtocolPBClientImpl.heartbeat(LocalizationProtocolPBClientImpl.java:63)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.localizeFiles(ContainerLocalizer.java:255)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.runLocalization(ContainerLocalizer.java:169)
+	at org.apache.hadoop.yarn.server.nodemanager.DefaultContainerExecutor.startLocalizer(DefaultContainerExecutor.java:130)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ResourceLocalizationService$LocalizerRunner.run(ResourceLocalizationService.java:1117)
+java.io.IOException: java.lang.InterruptedException
+	at org.apache.hadoop.ipc.Client.call(Client.java:1461)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1413)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:229)
+	at com.sun.proxy.$Proxy79.heartbeat(Unknown Source)
+	at org.apache.hadoop.yarn.server.nodemanager.api.impl.pb.client.LocalizationProtocolPBClientImpl.heartbeat(LocalizationProtocolPBClientImpl.java:63)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.localizeFiles(ContainerLocalizer.java:255)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ContainerLocalizer.runLocalization(ContainerLocalizer.java:169)
+	at org.apache.hadoop.yarn.server.nodemanager.DefaultContainerExecutor.startLocalizer(DefaultContainerExecutor.java:130)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.localizer.ResourceLocalizationService$LocalizerRunner.run(ResourceLocalizationService.java:1117)
+Caused by: java.lang.InterruptedException
+	at java.util.concurrent.FutureTask.awaitDone(FutureTask.java:404)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at org.apache.hadoop.ipc.Client$Connection.sendRpcRequest(Client.java:1060)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1455)
+	... 8 more
+18/04/16 10:48:54 INFO logaggregation.AppLogAggregatorImpl: Considering container container_1523874606393_0004_02_000001 for log-aggregation
+18/04/16 10:48:54 INFO localizer.ResourceLocalizationService: Unknown localizer with localizerId container_1523874606393_0004_02_000001 is sending heartbeat. Ordering it to DIE
+18/04/16 10:48:54 INFO containermanager.AuxServices: Got event CONTAINER_STOP for appId application_1523874606393_0004
+18/04/16 10:48:55 INFO nodemanager.NodeStatusUpdaterImpl: Removed completed containers from NM context: [container_1523874606393_0004_02_000001]
+18/04/16 10:48:55 INFO application.ApplicationImpl: Application application_1523874606393_0004 transitioned from RUNNING to APPLICATION_RESOURCES_CLEANINGUP
+18/04/16 10:48:55 INFO nodemanager.DefaultContainerExecutor: Deleting absolute path : /tmp/hadoop-root/nm-local-dir/usercache/root/appcache/application_1523874606393_0004
+18/04/16 10:48:55 INFO containermanager.AuxServices: Got event APPLICATION_STOP for appId application_1523874606393_0004
+18/04/16 10:48:55 INFO application.ApplicationImpl: Application application_1523874606393_0004 transitioned from APPLICATION_RESOURCES_CLEANINGUP to FINISHED
+18/04/16 10:48:55 INFO logaggregation.AppLogAggregatorImpl: Application just finished : application_1523874606393_0004
+18/04/16 10:48:55 INFO logaggregation.AppLogAggregatorImpl: Uploading logs for container container_1523874606393_0004_01_000001. Current good log dirs are /opt/hadoop-2.7.5/logs/userlogs
+18/04/16 10:48:55 INFO logaggregation.AppLogAggregatorImpl: Uploading logs for container container_1523874606393_0004_02_000001. Current good log dirs are /opt/hadoop-2.7.5/logs/userlogs
+18/04/16 10:48:55 WARN hdfs.DFSClient: DataStreamer Exception
+java.nio.channels.UnresolvedAddressException
+	at sun.nio.ch.Net.checkAddress(Net.java:101)
+	at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:622)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:192)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:531)
+	at org.apache.hadoop.hdfs.DFSOutputStream.createSocketForPipeline(DFSOutputStream.java:1702)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.createBlockOutputStream(DFSOutputStream.java:1432)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.nextBlockOutputStream(DFSOutputStream.java:1385)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.run(DFSOutputStream.java:554)
+18/04/16 10:48:55 INFO nodemanager.DefaultContainerExecutor: Deleting path : /opt/hadoop-2.7.5/logs/userlogs/application_1523874606393_0004
+18/04/16 10:48:56 INFO monitor.ContainersMonitorImpl: Stopping resource-monitoring for container_1523874606393_0004_01_000001
+18/04/16 10:48:56 INFO monitor.ContainersMonitorImpl: Stopping resource-monitoring for container_1523874606393_0004_02_000001

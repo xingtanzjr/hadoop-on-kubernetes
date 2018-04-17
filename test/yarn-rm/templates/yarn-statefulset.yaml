@@ -1,0 +1,93 @@
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# A headless service to create DNS records.
+apiVersion: v1
+kind: Service
+metadata:
+  name: yarn-rm-web
+  labels:
+    app: yarn-rm-web
+spec:
+  type: NodePort
+  ports:
+  - port: 8088
+    nodePort: 30088
+    name: webui
+  selector:
+    app: yarn-rm
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: yarn-rm
+  labels:
+    app: yarn-rm
+spec:
+  ports:
+  - port: 8032
+    name: fs
+  clusterIP: None
+  selector:
+    app: yarn-rm
+---
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: yarn-rm
+spec:
+  serviceName: "yarn-rm"
+  # Create a size-1 set. The namenode DNS name will be
+  # hdfs-namenode-0.hdfs-namenode.default.svc.YOUR-CLUSTER-DOMAIN
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: yarn-rm
+    spec:
+      # Use hostNetwork so datanodes connect to namenode without going through an overlay network
+      # like weave. Otherwise, namenode fails to see physical IP address of datanodes.
+      containers:
+        - name: yarn-rm
+          image: xingtanzjr/hadoop-resourcemanager:2.7.5
+          env:
+            - name: CORE_CONF_fs_defaultFS
+              value: hdfs://hdfs-namenode-0.hdfs-namenode.{{.Release.Namespace}}.svc.cluster.local:8020
+            - name: YARN_CONF_yarn_nodemanager_aux___services
+              value: mapreduce_shuffle
+            - name: YARN_CONF_yarn_resourcemanager_hostname
+              value: yarn-rm-0.yarn-rm.{{.Release.Namespace}}.svc.cluster.local
+            - name: CLUSTER_NAME
+              value: hdfs-k8s
+            - name: YARN_CONF_yarn_nodemanager_resource_memory___mb
+              value: "6144"
+            - name: YARN_CONF_yarn_scheduler_minimum___allocation___mb
+              value: "512"
+            - name: YARN_CONF_yarn_scheduler_maximum___allocation___mb
+              value: "6144"
+            - name: YARN_CONF_yarn_nodemanager_vmem___check___enabled
+              value: "false"
+            - name: MY_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            # - name: YARN_CONF_yarn_log___aggregation___enable
+            #   value: "true"
+          ports:
+          - containerPort: 8032
+            name: rm
+      nodeSelector:
+        yarn-rm-selector: yarn-rm-0
+      restartPolicy: Always

@@ -8,22 +8,37 @@ spec:
   clusterIP: None
   selector:
     app: test-bbox
+  ports:
+  - name: foo
+    port: 1234
+    targetPort: 1234
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: test-bbox
 spec:
   serviceName: "test-bbox"
-  replicas: 2
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-bbox
   template:
     metadata:
       labels:
         app: test-bbox
     spec:
+      # hostNetwork: true
+      hostname: busybox-tt
+      subdomain: test-bbox
       containers:
         - image: busybox
           name: busybox
+          env:
+          - name: MY_POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
           command:
             - sleep
             - "7200"
