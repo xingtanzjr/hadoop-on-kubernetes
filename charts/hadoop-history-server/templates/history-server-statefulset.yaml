@@ -52,6 +52,9 @@ spec:
   # Create a size-1 set. The namenode DNS name will be
   # hdfs-namenode-0.hdfs-namenode.default.svc.YOUR-CLUSTER-DOMAIN
   replicas: 1
+  selector:
+    matchLabels:
+      app: hadoop-hisotry-server
   template:
     metadata:
       labels:

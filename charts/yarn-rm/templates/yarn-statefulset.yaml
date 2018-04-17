@@ -46,7 +46,7 @@ spec:
   selector:
     app: yarn-rm
 ---
-apiVersion: apps/v1
+apiVersion: apps/v1beta1
 kind: StatefulSet
 metadata:
   name: yarn-rm
