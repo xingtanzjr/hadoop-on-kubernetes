@@ -17,48 +17,45 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: yarn-rm-web
+  name: hadoop-hisotry-server
   labels:
-    app: yarn-rm-web
+    app: hadoop-hisotry-server
 spec:
   type: NodePort
   ports:
-  - port: 8088
-    nodePort: 30088
+  - port: 19888
+    nodePort: 30988
     name: webui
-  - port: 8032
-    nodePort: 30032
-    name: rm
   selector:
-    app: yarn-rm
+    app: hadoop-hisotry-server
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: yarn-rm
+  name: hadoop-hisotry-server
   labels:
-    app: yarn-rm
+    app: hadoop-hisotry-server
 spec:
   ports:
-  - port: 8032
-    name: fs
+  - port: 19888
+    name: webui
   clusterIP: None
   selector:
-    app: yarn-rm
+    app: hadoop-hisotry-server
 ---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: yarn-rm
+  name: hadoop-hisotry-server
 spec:
-  serviceName: "yarn-rm"
+  serviceName: "hadoop-hisotry-server"
   # Create a size-1 set. The namenode DNS name will be
   # hdfs-namenode-0.hdfs-namenode.default.svc.YOUR-CLUSTER-DOMAIN
   replicas: 1
   template:
     metadata:
       labels:
-        app: yarn-rm
+        app: hadoop-hisotry-server
     spec:
       # Use hostNetwork so datanodes connect to namenode without going through an overlay network
       # like weave. Otherwise, namenode fails to see physical IP address of datanodes.
@@ -66,8 +63,14 @@ spec:
       hostPID: true
       dnsPolicy: ClusterFirstWithHostNet
       containers:
-        - name: yarn-rm
-          image: xingtanzjr/hadoop-resourcemanager:2.7.5
+        - name: hadoop-hisotry-server
+          image: xingtanzjr/hadoop-base:2.7.5
+          args:
+            - "$HADOOP_PREFIX/sbin/mr-jobhistory-daemon.sh"
+            - "--config"
+            - "$HADOOP_CONF_DIR"
+            - "start"
+            - "historyserver"
           env:
             - name: CORE_CONF_fs_defaultFS
               value: hdfs://hdfs-namenode-0.hdfs-namenode.{{.Release.Namespace}}.svc.cluster.local:8020
@@ -90,9 +93,7 @@ spec:
             - name: YARN_CONF_yarn_log_server_url
               value: http://yarn-rm-0.yarn-rm.{{.Release.Namespace}}.svc.cluster.local:19888/jobhistory/logs
           ports:
-          - containerPort: 8032
-            name: rm
-          - containerPort: 8088
+          - containerPort: 19888
             name: webui
       nodeSelector:
         yarn-rm-selector: yarn-rm-0
