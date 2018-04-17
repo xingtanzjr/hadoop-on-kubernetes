@@ -67,7 +67,7 @@ spec:
               value: "{{.Values.maxAllocMem}}"
             - name: YARN_CONF_yarn_nodemanager_vmem___check___enabled
               value: "false"
-            - name: YARN_CONF_yarn_log__aggregation___enable
+            - name: YARN_CONF_yarn_log___aggregation___enable
               value: "true"
             - name: YARN_CONF_yarn_log_server_url
               value: http://yarn-rm-0.yarn-rm.{{.Release.Namespace}}.svc.cluster.local:19888/jobhistory/logs
