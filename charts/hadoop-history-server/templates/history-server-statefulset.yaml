@@ -17,7 +17,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: bootstrap-script
+  name: bootstrap-script-mapred-history
 data:
   start-history-server.sh: |
     #!/bin/bash
@@ -111,7 +111,7 @@ spec:
       volumes:
       - name: bootscript
         configMap:
-          name: bootstrap-script
+          name: bootstrap-script-mapred-history
       nodeSelector:
         yarn-rm-selector: yarn-rm-0
       restartPolicy: Always

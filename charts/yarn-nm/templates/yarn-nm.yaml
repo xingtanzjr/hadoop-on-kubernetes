@@ -18,7 +18,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: bootstrap-script
+  name: bootstrap-script-yarn-nm
 data:
   start-nodemanager.sh: |
     #!/bin/bash
@@ -90,7 +90,7 @@ spec:
       volumes:
       - name: bootscript
         configMap:
-          name: bootstrap-script
+          name: bootstrap-script-yarn-nm
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
