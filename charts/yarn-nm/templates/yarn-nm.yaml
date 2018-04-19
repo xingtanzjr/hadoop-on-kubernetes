@@ -16,6 +16,15 @@
 # Deleting a daemonset may need some trick. See
 # https://github.com/kubernetes/kubernetes/issues/33245#issuecomment-261250489
 apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bootstrap-script
+data:
+  start-nodemanager.sh: |
+    #!/bin/bash
+    $HADOOP_PREFIX/bin/yarn --config $HADOOP_CONF_DIR nodemanager
+---
+apiVersion: v1
 kind: Service
 metadata:
   name: yarn-nm-web
@@ -45,7 +54,11 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: yarn-nm
-          image: xingtanzjr/hadoop-nodemanager:2.7.5
+          image: xingtanzjr/hadoop-base:2.7.5
+          args:
+            - "/bin/bash"
+            - "/bootscript/start-nodemanager.sh"
+            - "-d"
           resources:
             requests:
               memory: "4096Mi"
@@ -71,6 +84,13 @@ spec:
               value: "true"
             - name: YARN_CONF_yarn_log_server_url
               value: http://yarn-rm-0.yarn-rm.{{.Release.Namespace}}.svc.cluster.local:19888/jobhistory/logs
+          volumeMounts:
+          - name: bootscript
+            mountPath: /bootscript
+      volumes:
+      - name: bootscript
+        configMap:
+          name: bootstrap-script
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:

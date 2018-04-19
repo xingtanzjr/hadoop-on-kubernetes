@@ -15,6 +15,15 @@
 
 # A headless service to create DNS records.
 apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bootstrap-script
+data:
+  start-resourcemanager.sh: |
+    #!/bin/bash
+    $HADOOP_PREFIX/bin/yarn --config $HADOOP_CONF_DIR resourcemanager -D yarn.scheduler.capacity.resource-calculator=org.apache.hadoop.yarn.util.resource.DominantResourceCalculator
+---
+apiVersion: v1
 kind: Service
 metadata:
   name: yarn-rm-web
@@ -67,7 +76,11 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: yarn-rm
-          image: xingtanzjr/hadoop-resourcemanager:2.7.5
+          image: xingtanzjr/hadoop-base:2.7.5
+          args:
+            - "/bin/bash"
+            - "/bootscript/start-resourcemanager.sh"
+            - "-d"
           env:
             - name: CORE_CONF_fs_defaultFS
               value: hdfs://hdfs-namenode-0.hdfs-namenode.{{.Release.Namespace}}.svc.cluster.local:8020
@@ -94,6 +107,13 @@ spec:
             name: rm
           - containerPort: 8088
             name: webui
+          volumeMounts:
+          - name: bootscript
+            mountPath: /bootscript
+      volumes:
+      - name: bootscript
+        configMap:
+          name: bootstrap-script
       nodeSelector:
         yarn-rm-selector: yarn-rm-0
       restartPolicy: Always
